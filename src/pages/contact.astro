@@ -1,0 +1,48 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import PageHero from '../components/PageHero.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import Button from '../components/Button.astro';
+---
+
+<MainLayout
+  title="Contacto | Iniciá un proyecto con ZENTRA"
+  description="Conocé cómo preparar una consulta para ZENTRA. Los canales de contacto se habilitarán cuando se configuren los datos reales del estudio."
+>
+  <SiteHeader />
+  <main id="contenido">
+    <PageHero
+      eyebrow="CONTACTO"
+      title="Toda buena web empieza con una conversación."
+      description="Contanos qué te gustaría construir. Estamos preparando los canales para recibir consultas de manera directa."
+    />
+
+    <section class="section contact-page" aria-labelledby="contact-page-title">
+      <div class="container contact-page__grid">
+        <div class="contact-page__intro">
+          <SectionHeading id="contact-page-title" eyebrow="HABLEMOS DE TU IDEA" title="El canal de contacto todavía no está habilitado." description="No publicamos un formulario que no pueda entregar tu mensaje. Esta página queda preparada para incorporar los datos reales de ZENTRA." />
+          <div class="contact-status"><span aria-hidden="true"></span><p><strong>En preparación</strong><br />Todavía no hay una dirección de correo, teléfono ni servicio de recepción conectado.</p></div>
+          <div class="contact-page__actions">
+            <Button href="/services" variant="primary" arrow>Explorar servicios</Button>
+            <Button href="/work" variant="text" arrow>Ver proyectos</Button>
+          </div>
+        </div>
+
+        <aside class="contact-setup" aria-labelledby="contact-setup-title">
+          <p class="eyebrow"><span class="eyebrow__mark" aria-hidden="true"></span>PARA ACTIVAR CONTACTO</p>
+          <h2 id="contact-setup-title">Datos que faltan configurar</h2>
+          <ul class="contact-setup__list">
+            <li><span>01</span><div><h3>Canal principal</h3><p>Dirección de email confirmada o teléfono/WhatsApp que el propietario quiera publicar.</p></div></li>
+            <li><span>02</span><div><h3>Formulario, si se necesita</h3><p>Destino real de envío (servicio o endpoint), campos a solicitar y persona responsable de recibirlo.</p></div></li>
+            <li><span>03</span><div><h3>Privacidad y seguimiento</h3><p>Texto de privacidad, tratamiento de los datos y plazo esperado de respuesta.</p></div></li>
+            <li><span>04</span><div><h3>Canales públicos opcionales</h3><p>URLs de redes sociales o perfiles que estén activos y autorizados para publicar.</p></div></li>
+          </ul>
+          <p class="contact-setup__notice">No se envía ni almacena información desde esta página.</p>
+        </aside>
+      </div>
+    </section>
+  </main>
+  <SiteFooter />
+</MainLayout>

@@ -1,0 +1,33 @@
+---
+import Button from '../Button.astro';
+---
+
+<section class="hero dark-section" id="inicio" aria-labelledby="hero-title">
+  <div class="hero__grid-lines" aria-hidden="true"></div>
+  <div class="container hero__layout">
+    <div class="hero__copy">
+      <p class="eyebrow"><span class="eyebrow__mark" aria-hidden="true"></span>DESARROLLO DIGITAL</p>
+      <h1 id="hero-title">Construí tu presencia digital.<br /><span>Impulsá tu negocio.</span></h1>
+      <p class="hero__description">Creamos sitios web modernos y adaptables para que negocios y emprendedores construyan una presencia online más sólida.</p>
+      <div class="hero__actions">
+        <Button href="#servicios" variant="primary" arrow>Explorar servicios</Button>
+        <Button href="#proyectos" variant="secondary" arrow>Ver proyectos</Button>
+      </div>
+      <p class="hero__tagline">Built for what's next<span>.</span></p>
+    </div>
+
+    <div class="hero-art" aria-hidden="true">
+      <div class="hero-art__orbit hero-art__orbit--outer"></div>
+      <div class="hero-art__orbit hero-art__orbit--inner"></div>
+      <div class="hero-art__cross hero-art__cross--one"></div>
+      <div class="hero-art__cross hero-art__cross--two"></div>
+      <div class="hero-art__core">
+        <div class="hero-art__topline"><span>Z / DIGITAL STUDIO</span><span>01—04</span></div>
+        <div class="hero-art__monogram">Z<span>.</span></div>
+        <div class="hero-art__baseline"><span>IDEAS INTO INTERFACES</span><i></i></div>
+      </div>
+      <div class="hero-art__caption"><span></span>Diseño con intención. Desarrollo con claridad.</div>
+    </div>
+  </div>
+  <div class="container hero__bottom"><span>ARGENTINA <i></i> WORLDWIDE</span><a href="#servicios">DESLIZÁ PARA EXPLORAR <span aria-hidden="true">↓</span></a></div>
+</section>

@@ -1,0 +1,18 @@
+---
+import SectionHeading from '../SectionHeading.astro';
+import ProjectCard from '../ProjectCard.astro';
+import { projects } from '../../data/siteContent.js';
+---
+
+<section class="section work dark-section" id="proyectos" aria-labelledby="work-title">
+  <div class="container">
+    <div class="work__heading">
+      <SectionHeading id="work-title" eyebrow="TRABAJO SELECCIONADO" title="Ideas para distintos mundos." description="Una exploración de cómo una presencia digital puede tomar forma en diferentes contextos." light />
+      <span class="work__index">01 — 04<br />CONCEPTOS</span>
+    </div>
+    <div class="work__grid">
+      {projects.map((project) => <ProjectCard {...project} />)}
+    </div>
+    <p class="work__disclaimer"><span aria-hidden="true">✳</span> Proyectos conceptuales creados para explorar direcciones visuales. No representan clientes ni trabajos comerciales confirmados.</p>
+  </div>
+</section>

@@ -1,0 +1,28 @@
+---
+import SectionHeading from '../SectionHeading.astro';
+
+const faqs = [
+  { question: '¿Qué tipo de sitios web desarrolla ZENTRA?', answer: 'Trabajamos en landing pages, sitios para negocios, rediseños web y mantenimiento de sitios. El alcance de cada proyecto se conversa antes de comenzar.' },
+  { question: '¿Cómo comienza un proyecto?', answer: 'El primer paso es conocer el contexto, los objetivos y las necesidades del proyecto para definir un alcance y próximos pasos compartidos.' },
+  { question: '¿Pueden rediseñar un sitio web existente?', answer: 'Sí. El rediseño web forma parte de los servicios iniciales. La propuesta depende del sitio actual y de las necesidades que se quieran resolver.' },
+  { question: '¿Trabajan con clientes fuera de Argentina?', answer: 'ZENTRA está orientada a clientes de Argentina y del mercado internacional. La disponibilidad y dinámica de cada proyecto se confirma al conversar.' },
+  { question: '¿Qué información conviene preparar?', answer: 'Una descripción de tu negocio, el objetivo del sitio, el público al que querés llegar y ejemplos que te gusten pueden servir como punto de partida.' },
+];
+---
+
+<section class="section faq" id="preguntas" aria-labelledby="faq-title">
+  <div class="container faq__layout">
+    <div class="faq__intro">
+      <SectionHeading id="faq-title" eyebrow="PREGUNTAS FRECUENTES" title="Algunas respuestas para empezar." description="Si estás evaluando un proyecto digital, acá hay un primer punto de partida." />
+      <a class="faq__contact-link" href="#contacto">¿Tenés otra consulta? <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="faq__list">
+      {faqs.map((faq, index) => (
+        <details class="faq-item" name="zentra-faq" open={index === 0}>
+          <summary><span class="faq-item__number">0{index + 1}</span><span class="faq-item__question">{faq.question}</span><span class="faq-item__icon" aria-hidden="true"></span></summary>
+          <div class="faq-item__answer"><p>{faq.answer}</p></div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

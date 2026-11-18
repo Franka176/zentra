@@ -1,0 +1,59 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import PageHero from '../components/PageHero.astro';
+---
+
+<MainLayout
+  title="Términos de uso | ZENTRA Digital Development"
+  description="Condiciones informativas para navegar el sitio de ZENTRA y conocer sus servicios y proyectos conceptuales."
+>
+  <SiteHeader />
+  <main id="contenido">
+    <PageHero
+      eyebrow="INFORMACIÓN DEL SITIO"
+      title="Términos de uso."
+      description="Condiciones generales para consultar el contenido de este sitio informativo."
+    />
+
+    <section class="section legal-page" aria-label="Términos de uso">
+      <div class="container legal-page__container">
+        <aside class="legal-draft" role="note">
+          <strong>Revisión pendiente antes de publicar</strong>
+          <p>Esta versión no identifica a una persona jurídica ni define jurisdicción, titularidad legal o un canal de contacto. Esos datos deben confirmarse con el titular y revisarse antes de publicar.</p>
+        </aside>
+
+        <p class="legal-page__updated">Versión preliminar. Fecha de vigencia: pendiente de definir.</p>
+
+        <div class="legal-page__content">
+          <section aria-labelledby="terms-purpose">
+            <h2 id="terms-purpose">Alcance del sitio</h2>
+            <p>Este sitio presenta información general sobre ZENTRA, sus servicios iniciales y exploraciones visuales. La navegación no constituye por sí misma una propuesta comercial, aceptación de un trabajo ni acuerdo de prestación de servicios.</p>
+          </section>
+
+          <section aria-labelledby="terms-projects">
+            <h2 id="terms-projects">Proyectos conceptuales</h2>
+            <p>Nexo Digital, La Espiga, Bistro Verde y NovaTech se muestran como conceptos visuales. Su aparición no implica que sean clientes, proyectos comerciales confirmados, testimonios, resultados, métricas ni recomendaciones de terceros.</p>
+          </section>
+
+          <section aria-labelledby="terms-services">
+            <h2 id="terms-services">Servicios y acuerdos</h2>
+            <p>La información sobre servicios es orientativa. El alcance, los entregables, los plazos, los honorarios, las responsabilidades y cualquier condición de un proyecto deberán acordarse por separado antes de comenzar. La disponibilidad se confirma al conversar el proyecto.</p>
+          </section>
+
+          <section aria-labelledby="terms-use">
+            <h2 id="terms-use">Uso responsable</h2>
+            <p>Quien visita el sitio debe utilizarlo de manera lícita y evitar acciones que interfieran con su funcionamiento o intenten acceder sin autorización a sus sistemas. No se ofrece una garantía de disponibilidad continua.</p>
+          </section>
+
+          <section aria-labelledby="terms-pending">
+            <h2 id="terms-pending">Datos por definir</h2>
+            <p>Antes de publicar estos términos se deberán confirmar la identidad legal del titular, el canal de contacto, la titularidad y permisos de los materiales publicados, la jurisdicción aplicable, la fecha de vigencia y la revisión legal correspondiente. No se asigna una jurisdicción en esta versión.</p>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+  <SiteFooter />
+</MainLayout>

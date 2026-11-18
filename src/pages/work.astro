@@ -1,0 +1,44 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import PageHero from '../components/PageHero.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import Button from '../components/Button.astro';
+import { projects } from '../data/siteContent.js';
+---
+
+<MainLayout
+  title="Proyectos conceptuales | ZENTRA"
+  description="Exploraciones visuales de ZENTRA para Nexo Digital, La Espiga, Bistro Verde y NovaTech. Identificados como proyectos conceptuales."
+>
+  <SiteHeader />
+  <main id="contenido">
+    <PageHero
+      eyebrow="PROYECTOS"
+      title="Ideas digitales para distintos mundos."
+      description="Una selección de conceptos visuales para explorar cómo distintos negocios pueden presentarse online."
+      note="CONCEPTOS VISUALES / 01—04"
+    />
+    <section class="section work work-page" aria-labelledby="work-page-title">
+      <div class="container">
+        <div class="work-page__intro">
+          <SectionHeading id="work-page-title" eyebrow="EXPLORACIONES DE ZENTRA" title="Cuatro direcciones, cuatro contextos." description="Cada pieza es un ejercicio conceptual. No representa un cliente ni un trabajo comercial confirmado." light />
+          <p class="work__index">NEXO DIGITAL<br />LA ESPIGA<br />BISTRO VERDE<br />NOVATECH</p>
+        </div>
+        <div class="work__grid">
+          {projects.map((project) => <ProjectCard {...project} />)}
+        </div>
+        <p class="work__disclaimer"><span aria-hidden="true">✳</span> Todos los trabajos de esta página son proyectos conceptuales. No se presentan resultados, testimonios, tecnologías ni enlaces comerciales.</p>
+      </div>
+    </section>
+    <section class="internal-cta internal-cta--light" aria-labelledby="work-cta-title">
+      <div class="container internal-cta__inner">
+        <div><p class="eyebrow"><span class="eyebrow__mark" aria-hidden="true"></span>UN PROYECTO PROPIO</p><h2 id="work-cta-title">Tu idea puede ser la próxima.</h2></div>
+        <Button href="/contact" variant="primary" arrow>Conocer contacto</Button>
+      </div>
+    </section>
+  </main>
+  <SiteFooter />
+</MainLayout>

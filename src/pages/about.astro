@@ -1,0 +1,60 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import PageHero from '../components/PageHero.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import WhyZentra from '../components/sections/WhyZentra.astro';
+import Process from '../components/sections/Process.astro';
+import Button from '../components/Button.astro';
+---
+
+<MainLayout
+  title="Nosotros | ZENTRA Digital Development"
+  description="Conocé la misión, visión, valores y forma de trabajo de ZENTRA, un estudio independiente de desarrollo digital."
+>
+  <SiteHeader />
+  <main id="contenido">
+    <PageHero
+      eyebrow="SOBRE ZENTRA"
+      title="Desarrollo digital, con intención y claridad."
+      description="ZENTRA es un estudio independiente de desarrollo digital que crea experiencias web para negocios y emprendedores."
+    />
+
+    <section class="section about-purpose" aria-label="Misión y visión de ZENTRA">
+      <div class="container">
+        <SectionHeading eyebrow="NUESTRO PROPÓSITO" title="Tecnología clara, hecha para personas." description="Creemos que una buena presencia digital empieza por entender qué necesitás comunicar y a quién querés llegar." />
+        <div class="about-purpose__grid">
+          <article class="purpose-card">
+            <p class="eyebrow"><span class="eyebrow__mark" aria-hidden="true"></span>MISIÓN</p>
+            <h2>Hacer que el desarrollo digital sea más claro y cercano.</h2>
+            <p>Acompañar a negocios y emprendedores en la creación de sitios web modernos, adaptables y pensados para comunicar su propuesta.</p>
+          </article>
+          <article class="purpose-card purpose-card--vision">
+            <p class="eyebrow"><span class="eyebrow__mark" aria-hidden="true"></span>VISIÓN</p>
+            <h2>Una web más accesible para ideas que quieren avanzar.</h2>
+            <p>Contribuir a un entorno digital donde negocios de distintos tamaños puedan presentarse con claridad y construir su presencia online paso a paso.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <WhyZentra />
+    <Process />
+
+    <section class="about-independent" aria-labelledby="independent-title">
+      <div class="container about-independent__inner">
+        <p class="eyebrow"><span class="eyebrow__mark" aria-hidden="true"></span>ESTUDIO INDEPENDIENTE</p>
+        <div><h2 id="independent-title">Una relación directa con el proyecto.</h2><p>ZENTRA trabaja como un estudio independiente. El alcance, las prioridades y la forma de colaboración se conversan de manera clara para cada proyecto, sin prometer una estructura de equipo ni una trayectoria que no se haya confirmado.</p></div>
+      </div>
+    </section>
+
+    <section class="internal-cta" aria-labelledby="about-cta-title">
+      <div class="container internal-cta__inner">
+        <div><p class="eyebrow"><span class="eyebrow__mark" aria-hidden="true"></span>HECHO PARA LO QUE VIENE</p><h2 id="about-cta-title">Conocé los servicios de ZENTRA.</h2></div>
+        <Button href="/services" variant="secondary" arrow>Ver servicios</Button>
+      </div>
+    </section>
+  </main>
+  <SiteFooter />
+</MainLayout>

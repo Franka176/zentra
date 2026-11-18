@@ -1,0 +1,28 @@
+---
+interface Props {
+  number: string;
+  icon: 'landing' | 'website' | 'redesign' | 'maintenance';
+  title: string;
+  description: string;
+}
+
+const { number, icon, title, description } = Astro.props;
+---
+
+<article class="service-card">
+  <div class="service-card__top">
+    <span class="service-card__icon" aria-hidden="true">
+      {icon === 'landing' && <svg viewBox="0 0 32 32"><rect x="4" y="5" width="24" height="22" rx="3" /><path d="M4 11h24M9 8h.01M12 8h.01M8 16h9M8 20h14M8 24h7" /></svg>}
+      {icon === 'website' && <svg viewBox="0 0 32 32"><rect x="4" y="5" width="24" height="22" rx="3" /><path d="M4 11h24M9 8h.01M12 8h.01M9 16h6v7H9zM18 16h6M18 20h6M18 24h6" /></svg>}
+      {icon === 'redesign' && <svg viewBox="0 0 32 32"><path d="M25 13a10 10 0 0 0-17-5L5 11M5 6v5h5M7 19a10 10 0 0 0 17 5l3-3m0 5v-5h-5" /><path d="M12 16h8M16 12v8" /></svg>}
+      {icon === 'maintenance' && <svg viewBox="0 0 32 32"><path d="M20 7a7 7 0 0 0-8.6 8.6L5 22l5 5 6.4-6.4A7 7 0 0 0 25 12l-4 4-5-5 4-4Z" /></svg>}
+    </span>
+    <span class="service-card__number">{number}</span>
+  </div>
+  <h3>{title}</h3>
+  <p>{description}</p>
+  <a class="service-card__link" href="/contact">
+    Consultar servicio
+    <svg aria-hidden="true" viewBox="0 0 20 20" width="18" height="18"><path d="M3.75 10h12.5m-5-5 5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>
+  </a>
+</article>

@@ -1,0 +1,64 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import PageHero from '../components/PageHero.astro';
+import Button from '../components/Button.astro';
+import { services } from '../data/siteContent.js';
+---
+
+<MainLayout
+  title="Servicios de desarrollo web | ZENTRA"
+  description="Landing pages, sitios institucionales, rediseño y mantenimiento web con un enfoque claro, responsive y adaptado a cada proyecto."
+>
+  <SiteHeader />
+  <main id="contenido">
+    <PageHero
+      eyebrow="SERVICIOS DIGITALES"
+      title="Una solución web para cada próximo paso."
+      description="Diseño y desarrollo web para presentar mejor tu negocio, ordenar tu contenido y construir una presencia digital clara."
+    />
+
+    <section class="section service-details" aria-label="Servicios de ZENTRA">
+      <div class="container service-details__intro">
+        <p class="eyebrow"><span class="eyebrow__mark" aria-hidden="true"></span>QUÉ PODEMOS CONSTRUIR</p>
+        <p class="service-details__lead">Cada servicio parte de una necesidad distinta. El alcance se conversa y se acuerda antes de comenzar.</p>
+      </div>
+
+      <div class="container service-details__list">
+        {services.map((service) => (
+          <article class="service-detail" id={service.id}>
+            <div class="service-detail__heading">
+              <span class="service-detail__number">{service.number}</span>
+              <div>
+                <p class="service-detail__english">{service.title}</p>
+                <h2>{service.localTitle ?? service.title}</h2>
+              </div>
+            </div>
+            <div class="service-detail__content">
+              <p class="service-detail__summary">{service.summary}</p>
+              <div class="service-detail__included">
+                <h3>Qué puede incluir</h3>
+                <ul>{service.includes.map((item) => <li>{item}</li>)}</ul>
+              </div>
+              <div class="service-detail__benefit">
+                <span class="service-detail__label">ENFOQUE</span>
+                <p>{service.benefit}</p>
+                {service.qualification && <p class="service-detail__qualification">{service.qualification}</p>}
+                <Button href="/contact" variant="text" arrow>Consultar sobre este servicio</Button>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="internal-cta" aria-labelledby="services-cta-title">
+      <div class="container internal-cta__inner">
+        <div><p class="eyebrow"><span class="eyebrow__mark" aria-hidden="true"></span>¿TENÉS UN PROYECTO EN MENTE?</p><h2 id="services-cta-title">Empecemos por entenderlo.</h2></div>
+        <Button href="/contact" variant="secondary" arrow>Ir a contacto</Button>
+      </div>
+    </section>
+  </main>
+  <SiteFooter />
+</MainLayout>

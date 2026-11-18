@@ -1,0 +1,33 @@
+---
+interface Props {
+  name: string;
+  category: string;
+  description: string;
+  variant: 'nexo' | 'espiga' | 'bistro' | 'nova';
+  wide?: boolean;
+}
+
+const { name, category, description, variant, wide = false } = Astro.props;
+---
+
+<article class:list={['project-card', `project-card--${variant}`, wide && 'project-card--wide']}>
+  <div class="project-card__visual" aria-hidden="true">
+    <div class="project-window">
+      <div class="project-window__bar"><span></span><span></span><span></span><i></i></div>
+      <div class="project-window__content">
+        {variant === 'nexo' && <div class="preview-nexo"><span class="preview-brand">nexo<span>.</span></span><div class="preview-title-lines"><b></b><b></b></div><div class="preview-copy-lines"><i></i><i></i></div><span class="preview-action"></span><div class="preview-orbit"><span></span><span></span><span></span></div></div>}
+        {variant === 'espiga' && <div class="preview-espiga"><span class="preview-brand">la espiga</span><div class="preview-bread"></div><div class="preview-copy-lines"><i></i><i></i></div><span class="preview-action"></span></div>}
+        {variant === 'bistro' && <div class="preview-bistro"><span class="preview-brand">BISTRO<br />VERDE</span><div class="preview-leaf"></div><span class="preview-action"></span></div>}
+        {variant === 'nova' && <div class="preview-nova"><span class="preview-brand">NOVA<span>TECH</span></span><div class="preview-grid"><i></i><i></i><i></i><i></i></div><span class="preview-action"></span></div>}
+      </div>
+    </div>
+    <span class="project-card__concept">Proyecto conceptual</span>
+  </div>
+  <div class="project-card__details">
+    <div>
+      <p class="project-card__category">{category}</p>
+      <h3>{name}</h3>
+    </div>
+    <p class="project-card__description">{description}</p>
+  </div>
+</article>

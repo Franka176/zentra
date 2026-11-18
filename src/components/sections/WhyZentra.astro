@@ -1,0 +1,23 @@
+---
+import SectionHeading from '../SectionHeading.astro';
+import { values } from '../../data/siteContent.js';
+---
+
+<section class="section why" id="about" aria-labelledby="why-title">
+  <div class="container">
+    <div class="why__top">
+      <SectionHeading id="why-title" eyebrow="POR QUÉ ZENTRA" title="Buenas decisiones, desde el primer paso." description="Una forma de trabajar cercana y enfocada en construir una presencia digital con sentido." />
+      <div class="why__stamp" aria-hidden="true"><span>Z</span><i>ESTUDIO<br />DIGITAL</i></div>
+    </div>
+    <div class="why__grid">
+      {values.map((value) => (
+        <article class="value-item">
+          <span class="value-item__number">{value.number}</span>
+          <div><h3>{value.title}</h3><p>{value.description}</p></div>
+          <span class="value-item__arrow" aria-hidden="true">↗</span>
+        </article>
+      ))}
+    </div>
+    <div class="why__signature"><span>INDEPENDIENTE POR NATURALEZA</span><span>BUILT FOR WHAT'S NEXT <i>✳</i></span></div>
+  </div>
+</section>

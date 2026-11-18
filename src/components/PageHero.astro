@@ -1,0 +1,21 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  description: string;
+  note?: string;
+}
+
+const { eyebrow, title, description, note = "Built for what's next." } = Astro.props;
+---
+
+<section class="page-hero dark-section" aria-labelledby="page-title">
+  <div class="container page-hero__inner">
+    <p class="eyebrow"><span class="eyebrow__mark" aria-hidden="true"></span>{eyebrow}</p>
+    <h1 id="page-title">{title}</h1>
+    <div class="page-hero__bottom">
+      <p>{description}</p>
+      <span>{note}</span>
+    </div>
+  </div>
+</section>

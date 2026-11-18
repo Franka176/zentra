@@ -1,0 +1,59 @@
+---
+import Button from './Button.astro';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer" id="contacto">
+  <div class="container">
+    <div class="footer-cta">
+      <div>
+        <p class="eyebrow"><span class="eyebrow__mark" aria-hidden="true"></span>EL PRÓXIMO PASO EMPIEZA ACÁ</p>
+        <h2>¿Le damos forma<br />a tu próxima idea?</h2>
+      </div>
+      <p class="footer-cta__note">Estamos preparando nuestro canal de contacto. Mientras tanto, podés conocer los servicios y proyectos conceptuales de ZENTRA.</p>
+      <Button href="/services" variant="primary" arrow>Explorar servicios</Button>
+    </div>
+
+    <div class="footer-main">
+      <div class="footer-brand-block">
+        <a class="brand" href="/" aria-label="ZENTRA, volver al inicio">
+          <span class="brand__word">ZENTRA<span class="brand__dot">.</span></span>
+          <span class="brand__descriptor">Digital Development</span>
+        </a>
+        <p>Built for what's next.</p>
+      </div>
+
+      <div class="footer-column">
+        <h3>Explorar</h3>
+        <a href="/services">Servicios</a>
+        <a href="/work">Proyectos</a>
+        <a href="/about">Nosotros</a>
+        <a href="/#proceso">Proceso</a>
+      </div>
+
+      <div class="footer-column">
+        <h3>Servicios</h3>
+        <a href="/services#landing-pages">Landing pages</a>
+        <a href="/services#business-websites">Sitios para negocios</a>
+        <a href="/services#website-redesign">Rediseño web</a>
+        <a href="/services#website-maintenance">Mantenimiento</a>
+      </div>
+
+      <div class="footer-column footer-column--contact">
+        <h3>Contacto</h3>
+        <p>El canal de contacto se publicará próximamente.</p>
+        <a href="/contact">Ver opciones de contacto</a>
+        <h3 class="footer-column__legal-heading">Información legal</h3>
+        <a href="/privacy">Privacidad</a>
+        <a href="/terms">Términos</a>
+        <a class="footer-back-top" href="/">Volver al inicio <span aria-hidden="true">↑</span></a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© {year} ZENTRA. Todos los derechos reservados.</p>
+      <p>Built for what's next.</p>
+    </div>
+  </div>
+</footer>

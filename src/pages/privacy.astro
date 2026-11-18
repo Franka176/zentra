@@ -1,0 +1,64 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import PageHero from '../components/PageHero.astro';
+---
+
+<MainLayout
+  title="Privacidad | ZENTRA Digital Development"
+  description="Información sobre el funcionamiento actual del sitio ZENTRA, las fuentes externas y los datos que deben confirmarse antes de publicar esta política."
+>
+  <SiteHeader />
+  <main id="contenido">
+    <PageHero
+      eyebrow="INFORMACIÓN DEL SITIO"
+      title="Privacidad y uso de datos."
+      description="Esta página describe de forma preliminar qué ocurre al visitar el sitio en su versión actual."
+    />
+
+    <section class="section legal-page" aria-label="Política de privacidad">
+      <div class="container legal-page__container">
+        <aside class="legal-draft" role="note">
+          <strong>Revisión pendiente antes de publicar</strong>
+          <p>Faltan los datos del titular, el canal para consultas de privacidad y la revisión de los proveedores y registros técnicos de alojamiento.</p>
+        </aside>
+
+        <p class="legal-page__updated">Versión preliminar. Fecha de vigencia: pendiente de definir.</p>
+
+        <div class="legal-page__content">
+          <section aria-labelledby="privacy-scope">
+            <h2 id="privacy-scope">Qué hace esta versión del sitio</h2>
+            <p>El sitio es informativo. Actualmente no incluye formularios de consulta, cuentas de usuario, pagos, publicidad, herramientas propias de analítica ni almacenamiento de datos en el navegador. La página de contacto no envía ni almacena mensajes.</p>
+            <p>El servidor que aloje el sitio puede procesar datos técnicos necesarios para entregar las páginas. El proveedor definitivo, el alcance de sus registros y sus plazos de conservación deben confirmarse cuando se configure la publicación.</p>
+          </section>
+
+          <section aria-labelledby="privacy-fonts">
+            <h2 id="privacy-fonts">Fuentes tipográficas externas</h2>
+            <p>Para mostrar las tipografías, el navegador solicita recursos a Google Fonts en <code>fonts.googleapis.com</code> y <code>fonts.gstatic.com</code>. Como parte de esas solicitudes, Google recibe la dirección IP necesaria para entregar los archivos y otros datos técnicos de la conexión. Consultá la <a href="https://fonts.googleblog.com/2022/11/your-privacy-and-google-fonts.html" target="_blank" rel="noreferrer">información de privacidad de Google Fonts</a> y la <a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">política de privacidad de Google</a>.</p>
+            <p>Antes de publicar, el titular debe confirmar si mantendrá esta carga externa o preferirá alojar las fuentes junto al sitio, y revisar las condiciones aplicables a su público.</p>
+          </section>
+
+          <section aria-labelledby="privacy-contact">
+            <h2 id="privacy-contact">Consultas y datos de contacto</h2>
+            <p>Este sitio todavía no dispone de un canal habilitado para recibir consultas. Por eso, no solicita datos personales ni ofrece un medio para ejercer solicitudes relacionadas con privacidad.</p>
+            <p>Antes de publicar esta política se deberá indicar quién es el responsable del sitio, un correo real de contacto, cómo se reciben y responden solicitudes y qué información se procesa si más adelante se activa un formulario.</p>
+          </section>
+
+          <section aria-labelledby="privacy-completion">
+            <h2 id="privacy-completion">Información que falta completar</h2>
+            <ul>
+              <li>Identidad legal del titular y nombre bajo el que opera ZENTRA.</li>
+              <li>Correo real para consultas de privacidad y solicitudes.</li>
+              <li>Proveedor final de alojamiento, datos técnicos que registre y plazos de conservación aplicables.</li>
+              <li>Decisión sobre Google Fonts o alojamiento local de las tipografías.</li>
+              <li>Si se incorpora un formulario: servicio receptor, datos solicitados, finalidad, personas con acceso y plazos de conservación.</li>
+              <li>Fecha de vigencia y revisión legal según los mercados donde se ofrezca el sitio.</li>
+            </ul>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+  <SiteFooter />
+</MainLayout>

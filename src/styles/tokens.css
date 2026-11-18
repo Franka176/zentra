@@ -1,0 +1,85 @@
+:root {
+  color-scheme: light;
+
+  /* Brand palette */
+  --color-midnight-navy: #0b1220;
+  --color-electric-blue: #3978f6;
+  --color-digital-teal: #06d6b4;
+  --color-cloud-white: #f8fafc;
+  --color-action-accessible: #2b67e6;
+
+  /* Semantic surfaces and text */
+  --color-bg: var(--color-cloud-white);
+  --color-surface: #ffffff;
+  --color-surface-dark: var(--color-midnight-navy);
+  --color-text: var(--color-midnight-navy);
+  --color-text-muted: #536174;
+  --color-text-on-dark: var(--color-cloud-white);
+  --color-border: #dce3ec;
+  --color-border-on-dark: rgb(248 250 252 / 18%);
+  --color-action: var(--color-action-accessible);
+  --color-accent: var(--color-digital-teal);
+
+  /* Typography: load approved font files/provider in the app layer. */
+  --font-heading: "Space Grotesk", "Arial", sans-serif;
+  --font-body: "Inter", "Arial", sans-serif;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-md: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-card-title: clamp(1.25rem, 1.5vw, 1.625rem);
+  --text-h2: clamp(2rem, 4vw, 3.25rem);
+  --text-h1: clamp(2.75rem, 6vw, 4.5rem);
+  --text-display: clamp(3.5rem, 7.2vw, 6.5rem);
+  --leading-tight: 1.02;
+  --leading-heading: 1.12;
+  --leading-body: 1.65;
+  --tracking-eyebrow: 0.1em;
+
+  /* Spacing scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+  --section-space: clamp(4.5rem, 9vw, 9rem);
+
+  /* Layout */
+  --container-max: 75rem;
+  --container-gutter: clamp(1.25rem, 4vw, 4rem);
+  --grid-gap: 1.5rem;
+  --header-height: 5rem;
+
+  /* Shape, borders and interaction */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --border-width: 1px;
+  --focus-ring: 0 0 0 3px rgb(57 120 246 / 42%);
+  --motion-fast: 160ms ease;
+}
+
+@media (max-width: 39.99rem) {
+  :root {
+    --text-display: clamp(2.75rem, 12vw, 4rem);
+    --text-h1: clamp(2.75rem, 11vw, 3.25rem);
+    --text-h2: clamp(2rem, 8vw, 2.5rem);
+    --container-gutter: 1.25rem;
+    --grid-gap: 1rem;
+    --header-height: 4.5rem;
+    --section-space: clamp(4.5rem, 18vw, 5.5rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-fast: 0ms;
+  }
+}

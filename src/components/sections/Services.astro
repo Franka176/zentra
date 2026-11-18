@@ -1,0 +1,18 @@
+---
+import SectionHeading from '../SectionHeading.astro';
+import ServiceCard from '../ServiceCard.astro';
+import { services } from '../../data/siteContent.js';
+---
+
+<section class="section services" id="servicios" aria-labelledby="services-title">
+  <div class="container">
+    <div class="services__intro">
+      <SectionHeading id="services-title" eyebrow="QUÉ HACEMOS" title="Una base digital preparada para crecer." description="Diseño y desarrollo web pensado para comunicar mejor lo que hacés." />
+      <p class="services__side-note">DEL PRIMER CONCEPTO<br />A UNA PRESENCIA DIGITAL CLARA <span>↘</span></p>
+    </div>
+    <div class="services__grid">
+      {services.map((service) => <ServiceCard {...service} />)}
+    </div>
+    <div class="services__footnote"><span class="services__footnote-mark"></span><p>Un servicio a medida de cada proyecto, con decisiones compartidas en cada etapa.</p></div>
+  </div>
+</section>
