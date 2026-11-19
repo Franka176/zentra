@@ -1,0 +1,61 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import PageHero from '../../components/PageHero.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import WhyZentra from '../../components/sections/WhyZentra.astro';
+import Process from '../../components/sections/Process.astro';
+import Button from '../../components/Button.astro';
+---
+
+<MainLayout
+  lang="en"
+  title="About ZENTRA | Independent Digital Development Studio"
+  description="Meet ZENTRA, an independent digital development studio: our purpose, values, and thoughtful way of working."
+>
+  <SiteHeader />
+  <main id="contenido">
+    <PageHero
+      eyebrow="ABOUT ZENTRA"
+      title="Digital development with purpose and clarity."
+      description="ZENTRA is an independent digital development studio creating web experiences for businesses and entrepreneurs."
+    />
+
+    <section class="section about-purpose" aria-label="ZENTRA mission and vision">
+      <div class="container">
+        <SectionHeading eyebrow="OUR PURPOSE" title="Clear technology, made for people." description="We believe a strong digital presence starts with understanding what you need to communicate and who you want to reach." />
+        <div class="about-purpose__grid">
+          <article class="purpose-card">
+            <p class="eyebrow"><span class="eyebrow__mark" aria-hidden="true"></span>MISSION</p>
+            <h2>Make digital development clearer and more approachable.</h2>
+            <p>Support businesses and entrepreneurs as they create modern, responsive websites designed to communicate what they offer.</p>
+          </article>
+          <article class="purpose-card purpose-card--vision">
+            <p class="eyebrow"><span class="eyebrow__mark" aria-hidden="true"></span>VISION</p>
+            <h2>A more accessible web for ideas ready to move forward.</h2>
+            <p>Help shape a digital environment where businesses of different sizes can present themselves clearly and build an online presence step by step.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <WhyZentra lang="en" />
+    <Process lang="en" />
+
+    <section class="about-independent" aria-labelledby="independent-title">
+      <div class="container about-independent__inner">
+        <p class="eyebrow"><span class="eyebrow__mark" aria-hidden="true"></span>INDEPENDENT STUDIO</p>
+        <div><h2>A direct relationship with every project.</h2><p>ZENTRA works as an independent studio. Scope, priorities, and the way we collaborate are discussed clearly for each project, without claiming an unconfirmed team structure or track record.</p></div>
+      </div>
+    </section>
+
+    <section class="internal-cta" aria-labelledby="about-cta-title">
+      <div class="container internal-cta__inner">
+        <div><p class="eyebrow"><span class="eyebrow__mark" aria-hidden="true"></span>BUILT FOR WHAT’S NEXT</p><h2>Explore ZENTRA’s services.</h2></div>
+        <Button href="/en/services" variant="secondary" arrow>View services</Button>
+      </div>
+    </section>
+  </main>
+  <SiteFooter />
+</MainLayout>

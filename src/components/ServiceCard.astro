@@ -4,9 +4,11 @@ interface Props {
   icon: 'landing' | 'website' | 'redesign' | 'maintenance';
   title: string;
   description: string;
+  href?: string;
+  linkText?: string;
 }
 
-const { number, icon, title, description } = Astro.props;
+const { number, icon, title, description, href = '/contact', linkText = 'Consultar servicio' } = Astro.props;
 ---
 
 <article class="service-card">
@@ -21,8 +23,8 @@ const { number, icon, title, description } = Astro.props;
   </div>
   <h3>{title}</h3>
   <p>{description}</p>
-  <a class="service-card__link" href="/contact">
-    Consultar servicio
+  <a class="service-card__link" href={href}>
+    {linkText}
     <svg aria-hidden="true" viewBox="0 0 20 20" width="18" height="18"><path d="M3.75 10h12.5m-5-5 5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>
   </a>
 </article>

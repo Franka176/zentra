@@ -1,17 +1,23 @@
 ---
 import Button from '../Button.astro';
+
+interface Props { lang?: 'es' | 'en' }
+const { lang = 'es' } = Astro.props;
+const copy = lang === 'en'
+  ? { eyebrow: 'DIGITAL DEVELOPMENT', first: 'Build your digital presence.', second: 'Move your business forward.', description: 'We create modern, responsive websites that help businesses and entrepreneurs build a stronger online presence.', services: 'Explore our services', work: 'View our work', caption: 'Thoughtful design. Clear development.', scroll: 'SCROLL TO EXPLORE' }
+  : { eyebrow: 'DESARROLLO DIGITAL', first: 'Construí tu presencia digital.', second: 'Impulsá tu negocio.', description: 'Creamos sitios web modernos y adaptables para que negocios y emprendedores construyan una presencia online más sólida.', services: 'Explorar servicios', work: 'Ver proyectos', caption: 'Diseño con intención. Desarrollo con claridad.', scroll: 'DESLIZÁ PARA EXPLORAR' };
 ---
 
 <section class="hero dark-section" id="inicio" aria-labelledby="hero-title">
   <div class="hero__grid-lines" aria-hidden="true"></div>
   <div class="container hero__layout">
     <div class="hero__copy">
-      <p class="eyebrow"><span class="eyebrow__mark" aria-hidden="true"></span>DESARROLLO DIGITAL</p>
-      <h1 id="hero-title">Construí tu presencia digital.<br /><span>Impulsá tu negocio.</span></h1>
-      <p class="hero__description">Creamos sitios web modernos y adaptables para que negocios y emprendedores construyan una presencia online más sólida.</p>
+      <p class="eyebrow"><span class="eyebrow__mark" aria-hidden="true"></span>{copy.eyebrow}</p>
+      <h1 id="hero-title">{copy.first}<br /><span>{copy.second}</span></h1>
+      <p class="hero__description">{copy.description}</p>
       <div class="hero__actions">
-        <Button href="#servicios" variant="primary" arrow>Explorar servicios</Button>
-        <Button href="#proyectos" variant="secondary" arrow>Ver proyectos</Button>
+        <Button href="#servicios" variant="primary" arrow>{copy.services}</Button>
+        <Button href="#proyectos" variant="secondary" arrow>{copy.work}</Button>
       </div>
       <p class="hero__tagline">Built for what's next<span>.</span></p>
     </div>
@@ -26,8 +32,8 @@ import Button from '../Button.astro';
         <div class="hero-art__monogram">Z<span>.</span></div>
         <div class="hero-art__baseline"><span>IDEAS INTO INTERFACES</span><i></i></div>
       </div>
-      <div class="hero-art__caption"><span></span>Diseño con intención. Desarrollo con claridad.</div>
+      <div class="hero-art__caption"><span></span>{copy.caption}</div>
     </div>
   </div>
-  <div class="container hero__bottom"><span>ARGENTINA <i></i> WORLDWIDE</span><a href="#servicios">DESLIZÁ PARA EXPLORAR <span aria-hidden="true">↓</span></a></div>
+  <div class="container hero__bottom"><span>ARGENTINA <i></i> WORLDWIDE</span><a href="#servicios">{copy.scroll} <span aria-hidden="true">↓</span></a></div>
 </section>

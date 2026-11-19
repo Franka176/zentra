@@ -1,0 +1,65 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import PageHero from '../../components/PageHero.astro';
+---
+
+<MainLayout
+  lang="en"
+  title="Privacy | ZENTRA Digital Development"
+  description="Preliminary information about the current ZENTRA website, external fonts, and details to confirm before this privacy notice is published."
+>
+  <SiteHeader />
+  <main id="contenido">
+    <PageHero
+      eyebrow="SITE INFORMATION"
+      title="Privacy and data use."
+      description="This page preliminarily describes what happens when you visit the site in its current form."
+    />
+
+    <section class="section legal-page" aria-label="Privacy notice">
+      <div class="container legal-page__container">
+        <aside class="legal-draft" role="note">
+          <strong>Review required before publication</strong>
+          <p>The site owner’s details, a privacy contact channel, and a review of hosting providers and technical logs still need to be confirmed.</p>
+        </aside>
+
+        <p class="legal-page__updated">Preliminary version. Effective date: to be defined.</p>
+
+        <div class="legal-page__content">
+          <section aria-labelledby="privacy-scope">
+            <h2 id="privacy-scope">What this version of the site does</h2>
+            <p>This is an informational website. It currently has no inquiry forms, user accounts, payments, advertising, first-party analytics tools, or browser data storage. The contact page does not send or store messages.</p>
+            <p>The server hosting the site may process technical data needed to deliver its pages. The final provider, the scope of its logs, and applicable retention periods must be confirmed when publication is configured.</p>
+          </section>
+
+          <section aria-labelledby="privacy-fonts">
+            <h2 id="privacy-fonts">External fonts</h2>
+            <p>To display the typefaces, the browser requests resources from Google Fonts at <code>fonts.googleapis.com</code> and <code>fonts.gstatic.com</code>. As part of those requests, Google receives the IP address needed to deliver the files and other technical connection data. Read <a href="https://fonts.googleblog.com/2022/11/your-privacy-and-google-fonts.html" target="_blank" rel="noreferrer">Google Fonts privacy information</a> and <a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">Google’s privacy policy</a>.</p>
+            <p>Before publication, the site owner should confirm whether to keep this external delivery or host the fonts alongside the site, and review the terms that apply to its audience.</p>
+          </section>
+
+          <section aria-labelledby="privacy-contact">
+            <h2 id="privacy-contact">Inquiries and contact details</h2>
+            <p>The site does not yet have an active channel for receiving inquiries. It therefore does not request personal data or provide a way to submit privacy-related requests.</p>
+            <p>Before this notice is published, it should identify who is responsible for the site, provide a real contact email, explain how requests are received and answered, and describe what information would be processed if a form is enabled later.</p>
+          </section>
+
+          <section aria-labelledby="privacy-completion">
+            <h2 id="privacy-completion">Details still to be completed</h2>
+            <ul>
+              <li>The site owner’s legal identity and the name under which ZENTRA operates.</li>
+              <li>A real email address for privacy inquiries and requests.</li>
+              <li>The final hosting provider, the technical data it records, and applicable retention periods.</li>
+              <li>Whether to keep Google Fonts or host the typefaces locally.</li>
+              <li>If a form is added: the receiving service, requested data, purpose, people with access, and retention periods.</li>
+              <li>An effective date and legal review for the markets where the site will be offered.</li>
+            </ul>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+  <SiteFooter />
+</MainLayout>

@@ -1,18 +1,25 @@
 ---
 import SectionHeading from '../SectionHeading.astro';
 import ProjectCard from '../ProjectCard.astro';
-import { projects } from '../../data/siteContent.js';
+import { getProjects } from '../../data/siteContent.js';
+
+interface Props { lang?: 'es' | 'en' }
+const { lang = 'es' } = Astro.props;
+const projects = getProjects(lang);
+const copy = lang === 'en'
+  ? { eyebrow: 'SELECTED WORK', title: 'Ideas for different worlds.', description: 'A look at how a digital presence can take shape across different contexts.', indexLabel: 'CONCEPTS', disclaimer: 'Concept projects created to explore visual directions. They do not represent clients or confirmed commercial work.' }
+  : { eyebrow: 'TRABAJO SELECCIONADO', title: 'Ideas para distintos mundos.', description: 'Una exploración de cómo una presencia digital puede tomar forma en diferentes contextos.', indexLabel: 'CONCEPTOS', disclaimer: 'Proyectos conceptuales creados para explorar direcciones visuales. No representan clientes ni trabajos comerciales confirmados.' };
 ---
 
 <section class="section work dark-section" id="proyectos" aria-labelledby="work-title">
   <div class="container">
     <div class="work__heading">
-      <SectionHeading id="work-title" eyebrow="TRABAJO SELECCIONADO" title="Ideas para distintos mundos." description="Una exploración de cómo una presencia digital puede tomar forma en diferentes contextos." light />
-      <span class="work__index">01 — 04<br />CONCEPTOS</span>
+      <SectionHeading id="work-title" eyebrow={copy.eyebrow} title={copy.title} description={copy.description} light />
+      <span class="work__index">01 — 04<br />{copy.indexLabel}</span>
     </div>
     <div class="work__grid">
-      {projects.map((project) => <ProjectCard {...project} />)}
+      {projects.map((project) => <ProjectCard {...project} lang={lang} />)}
     </div>
-    <p class="work__disclaimer"><span aria-hidden="true">✳</span> Proyectos conceptuales creados para explorar direcciones visuales. No representan clientes ni trabajos comerciales confirmados.</p>
+    <p class="work__disclaimer"><span aria-hidden="true">✳</span> {copy.disclaimer}</p>
   </div>
 </section>

@@ -1,0 +1,67 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import PageHero from '../../components/PageHero.astro';
+import Button from '../../components/Button.astro';
+import { getServices } from '../../data/siteContent.js';
+
+const services = getServices('en');
+---
+
+<MainLayout
+  lang="en"
+  title="Web Development Services | ZENTRA"
+  description="Landing pages, business websites, website redesign, and maintenance, with a clear, responsive approach shaped around each project."
+>
+  <SiteHeader />
+  <main id="contenido">
+    <PageHero
+      eyebrow="DIGITAL SERVICES"
+      title="A web solution for your next step."
+      description="Web design and development to present your business more clearly, organize your content, and build a stronger digital presence."
+    />
+
+    <section class="section service-details" aria-label="ZENTRA services">
+      <div class="container service-details__intro">
+        <p class="eyebrow"><span class="eyebrow__mark" aria-hidden="true"></span>WHAT WE CAN BUILD</p>
+        <p class="service-details__lead">Every service starts with a different need. We discuss and agree on the scope before work begins.</p>
+      </div>
+
+      <div class="container service-details__list">
+        {services.map((service) => (
+          <article class="service-detail" id={service.id}>
+            <div class="service-detail__heading">
+              <span class="service-detail__number">{service.number}</span>
+              <div>
+                <p class="service-detail__english">SERVICE {service.number}</p>
+                <h2>{service.title}</h2>
+              </div>
+            </div>
+            <div class="service-detail__content">
+              <p class="service-detail__summary">{service.summary}</p>
+              <div class="service-detail__included">
+                <h3>What it can include</h3>
+                <ul>{service.includes.map((item) => <li>{item}</li>)}</ul>
+              </div>
+              <div class="service-detail__benefit">
+                <span class="service-detail__label">APPROACH</span>
+                <p>{service.benefit}</p>
+                {service.qualification && <p class="service-detail__qualification">{service.qualification}</p>}
+                <Button href="/en/contact" variant="text" arrow>Ask about this service</Button>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="internal-cta" aria-labelledby="services-cta-title">
+      <div class="container internal-cta__inner">
+        <div><p class="eyebrow"><span class="eyebrow__mark" aria-hidden="true"></span>HAVE A PROJECT IN MIND?</p><h2>Let’s understand it first.</h2></div>
+        <Button href="/en/contact" variant="secondary" arrow>Go to contact</Button>
+      </div>
+    </section>
+  </main>
+  <SiteFooter />
+</MainLayout>

@@ -1,0 +1,30 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import Hero from '../../components/sections/Hero.astro';
+import Services from '../../components/sections/Services.astro';
+import WhyZentra from '../../components/sections/WhyZentra.astro';
+import SelectedWork from '../../components/sections/SelectedWork.astro';
+import Process from '../../components/sections/Process.astro';
+import CTA from '../../components/sections/CTA.astro';
+import FAQ from '../../components/sections/FAQ.astro';
+---
+
+<MainLayout
+  lang="en"
+  title="ZENTRA | Digital Development"
+  description="We create modern, responsive websites that help businesses and entrepreneurs build a stronger online presence. Built for what's next."
+>
+  <SiteHeader />
+  <main id="contenido">
+    <Hero lang="en" />
+    <Services lang="en" />
+    <WhyZentra lang="en" />
+    <SelectedWork lang="en" />
+    <Process lang="en" />
+    <CTA lang="en" />
+    <FAQ lang="en" />
+  </main>
+  <SiteFooter />
+</MainLayout>

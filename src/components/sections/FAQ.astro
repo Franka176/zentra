@@ -1,20 +1,34 @@
 ---
 import SectionHeading from '../SectionHeading.astro';
 
-const faqs = [
+const faqsEs = [
   { question: '¿Qué tipo de sitios web desarrolla ZENTRA?', answer: 'Trabajamos en landing pages, sitios para negocios, rediseños web y mantenimiento de sitios. El alcance de cada proyecto se conversa antes de comenzar.' },
   { question: '¿Cómo comienza un proyecto?', answer: 'El primer paso es conocer el contexto, los objetivos y las necesidades del proyecto para definir un alcance y próximos pasos compartidos.' },
   { question: '¿Pueden rediseñar un sitio web existente?', answer: 'Sí. El rediseño web forma parte de los servicios iniciales. La propuesta depende del sitio actual y de las necesidades que se quieran resolver.' },
   { question: '¿Trabajan con clientes fuera de Argentina?', answer: 'ZENTRA está orientada a clientes de Argentina y del mercado internacional. La disponibilidad y dinámica de cada proyecto se confirma al conversar.' },
   { question: '¿Qué información conviene preparar?', answer: 'Una descripción de tu negocio, el objetivo del sitio, el público al que querés llegar y ejemplos que te gusten pueden servir como punto de partida.' },
 ];
+const faqsEn = [
+  { question: 'What kinds of websites does ZENTRA build?', answer: 'We work on landing pages, business websites, website redesigns, and maintenance. We discuss each project’s scope before work begins.' },
+  { question: 'How does a project get started?', answer: 'We begin by learning about the context, goals, and needs of the project so we can agree on a scope and shared next steps.' },
+  { question: 'Can you redesign an existing website?', answer: 'Yes. Website redesign is one of our initial services. The approach depends on the current site and the needs you want to address.' },
+  { question: 'Do you work with clients outside Argentina?', answer: 'ZENTRA is oriented toward clients in Argentina and international markets. Availability and the working arrangement are confirmed through a conversation.' },
+  { question: 'What information should I prepare?', answer: 'A description of your business, the site’s goal, the audience you want to reach, and examples you like can be a helpful starting point.' },
+];
+
+interface Props { lang?: 'es' | 'en' }
+const { lang = 'es' } = Astro.props;
+const faqs = lang === 'en' ? faqsEn : faqsEs;
+const copy = lang === 'en'
+  ? { eyebrow: 'FREQUENTLY ASKED QUESTIONS', title: 'A few answers to get started.', description: 'If you are considering a digital project, this is a good place to begin.', other: 'Have another question?' }
+  : { eyebrow: 'PREGUNTAS FRECUENTES', title: 'Algunas respuestas para empezar.', description: 'Si estás evaluando un proyecto digital, acá hay un primer punto de partida.', other: '¿Tenés otra consulta?' };
 ---
 
 <section class="section faq" id="preguntas" aria-labelledby="faq-title">
   <div class="container faq__layout">
     <div class="faq__intro">
-      <SectionHeading id="faq-title" eyebrow="PREGUNTAS FRECUENTES" title="Algunas respuestas para empezar." description="Si estás evaluando un proyecto digital, acá hay un primer punto de partida." />
-      <a class="faq__contact-link" href="#contacto">¿Tenés otra consulta? <span aria-hidden="true">↗</span></a>
+      <SectionHeading id="faq-title" eyebrow={copy.eyebrow} title={copy.title} description={copy.description} />
+      <a class="faq__contact-link" href={lang === 'en' ? '#contact' : '#contacto'}>{copy.other} <span aria-hidden="true">↗</span></a>
     </div>
     <div class="faq__list">
       {faqs.map((faq, index) => (

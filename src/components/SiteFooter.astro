@@ -1,23 +1,33 @@
 ---
 import Button from './Button.astro';
 
+const language = Astro.url.pathname === '/en' || Astro.url.pathname.startsWith('/en/') ? 'en' : 'es';
+const prefix = language === 'en' ? '/en' : '';
 const year = new Date().getFullYear();
+const copy = language === 'en'
+  ? {
+      eyebrow: 'THE NEXT STEP STARTS HERE', titleLineOne: 'Ready to shape', titleLineTwo: 'your next idea?', note: 'Our contact channel is being prepared. In the meantime, explore ZENTRA services and concept projects.', explore: 'Explore services', home: 'ZENTRA, back to home', exploreTitle: 'Explore', services: 'Services', work: 'Work', about: 'About', process: 'Process', contact: 'Contact', contactNote: 'Our contact channel will be available soon.', contactOptions: 'See contact options', legal: 'Legal information', privacy: 'Privacy', terms: 'Terms', back: 'Back to top', copyright: 'All rights reserved.',
+    }
+  : {
+      eyebrow: 'EL PRÓXIMO PASO EMPIEZA ACÁ', titleLineOne: '¿Le damos forma', titleLineTwo: 'a tu próxima idea?', note: 'Estamos preparando nuestro canal de contacto. Mientras tanto, podés conocer los servicios y proyectos conceptuales de ZENTRA.', explore: 'Explorar servicios', home: 'ZENTRA, volver al inicio', exploreTitle: 'Explorar', services: 'Servicios', work: 'Proyectos', about: 'Nosotros', process: 'Proceso', contact: 'Contacto', contactNote: 'El canal de contacto se publicará próximamente.', contactOptions: 'Ver opciones de contacto', legal: 'Información legal', privacy: 'Privacidad', terms: 'Términos', back: 'Volver al inicio', copyright: 'Todos los derechos reservados.',
+    };
+const homeHref = language === 'en' ? '/en' : '/';
 ---
 
-<footer class="site-footer" id="contacto">
+<footer class="site-footer" id={language === 'en' ? 'contact' : 'contacto'}>
   <div class="container">
     <div class="footer-cta">
       <div>
-        <p class="eyebrow"><span class="eyebrow__mark" aria-hidden="true"></span>EL PRÓXIMO PASO EMPIEZA ACÁ</p>
-        <h2>¿Le damos forma<br />a tu próxima idea?</h2>
+        <p class="eyebrow"><span class="eyebrow__mark" aria-hidden="true"></span>{copy.eyebrow}</p>
+        <h2>{copy.titleLineOne}<br />{copy.titleLineTwo}</h2>
       </div>
-      <p class="footer-cta__note">Estamos preparando nuestro canal de contacto. Mientras tanto, podés conocer los servicios y proyectos conceptuales de ZENTRA.</p>
-      <Button href="/services" variant="primary" arrow>Explorar servicios</Button>
+      <p class="footer-cta__note">{copy.note}</p>
+      <Button href={prefix + '/services'} variant="primary" arrow>{copy.explore}</Button>
     </div>
 
     <div class="footer-main">
       <div class="footer-brand-block">
-        <a class="brand" href="/" aria-label="ZENTRA, volver al inicio">
+        <a class="brand" href={homeHref} aria-label={copy.home}>
           <span class="brand__word">ZENTRA<span class="brand__dot">.</span></span>
           <span class="brand__descriptor">Digital Development</span>
         </a>
@@ -25,34 +35,34 @@ const year = new Date().getFullYear();
       </div>
 
       <div class="footer-column">
-        <h3>Explorar</h3>
-        <a href="/services">Servicios</a>
-        <a href="/work">Proyectos</a>
-        <a href="/about">Nosotros</a>
-        <a href="/#proceso">Proceso</a>
+        <h3>{copy.exploreTitle}</h3>
+        <a href={prefix + '/services'}>{copy.services}</a>
+        <a href={prefix + '/work'}>{copy.work}</a>
+        <a href={prefix + '/about'}>{copy.about}</a>
+        <a href={homeHref + '#proceso'}>{copy.process}</a>
       </div>
 
       <div class="footer-column">
-        <h3>Servicios</h3>
-        <a href="/services#landing-pages">Landing pages</a>
-        <a href="/services#business-websites">Sitios para negocios</a>
-        <a href="/services#website-redesign">Rediseño web</a>
-        <a href="/services#website-maintenance">Mantenimiento</a>
+        <h3>{copy.services}</h3>
+        <a href={prefix + '/services#landing-pages'}>Landing Pages</a>
+        <a href={prefix + '/services#business-websites'}>{language === 'en' ? 'Business Websites' : 'Sitios para negocios'}</a>
+        <a href={prefix + '/services#website-redesign'}>{language === 'en' ? 'Website Redesign' : 'Rediseño web'}</a>
+        <a href={prefix + '/services#website-maintenance'}>{language === 'en' ? 'Website Maintenance' : 'Mantenimiento'}</a>
       </div>
 
       <div class="footer-column footer-column--contact">
-        <h3>Contacto</h3>
-        <p>El canal de contacto se publicará próximamente.</p>
-        <a href="/contact">Ver opciones de contacto</a>
-        <h3 class="footer-column__legal-heading">Información legal</h3>
-        <a href="/privacy">Privacidad</a>
-        <a href="/terms">Términos</a>
-        <a class="footer-back-top" href="/">Volver al inicio <span aria-hidden="true">↑</span></a>
+        <h3>{copy.contact}</h3>
+        <p>{copy.contactNote}</p>
+        <a href={prefix + '/contact'}>{copy.contactOptions}</a>
+        <h3 class="footer-column__legal-heading">{copy.legal}</h3>
+        <a href={prefix + '/privacy'}>{copy.privacy}</a>
+        <a href={prefix + '/terms'}>{copy.terms}</a>
+        <a class="footer-back-top" href={homeHref}>{copy.back} <span aria-hidden="true">↑</span></a>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <p>© {year} ZENTRA. Todos los derechos reservados.</p>
+      <p>© {year} ZENTRA. {copy.copyright}</p>
       <p>Built for what's next.</p>
     </div>
   </div>

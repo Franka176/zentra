@@ -1,18 +1,25 @@
 ---
 import SectionHeading from '../SectionHeading.astro';
 import ServiceCard from '../ServiceCard.astro';
-import { services } from '../../data/siteContent.js';
+import { getServices } from '../../data/siteContent.js';
+
+interface Props { lang?: 'es' | 'en' }
+const { lang = 'es' } = Astro.props;
+const services = getServices(lang);
+const copy = lang === 'en'
+  ? { eyebrow: 'WHAT WE DO', title: 'A digital foundation built to grow.', description: 'Web design and development to communicate what you do more clearly.', noteFirst: 'FROM FIRST CONCEPT', noteSecond: 'TO A CLEAR DIGITAL PRESENCE', footnote: 'A service shaped around each project, with shared decisions at every stage.', link: 'Ask about this service' }
+  : { eyebrow: 'QUÉ HACEMOS', title: 'Una base digital preparada para crecer.', description: 'Diseño y desarrollo web pensado para comunicar mejor lo que hacés.', noteFirst: 'DEL PRIMER CONCEPTO', noteSecond: 'A UNA PRESENCIA DIGITAL CLARA', footnote: 'Un servicio a medida de cada proyecto, con decisiones compartidas en cada etapa.', link: 'Consultar servicio' };
 ---
 
 <section class="section services" id="servicios" aria-labelledby="services-title">
   <div class="container">
     <div class="services__intro">
-      <SectionHeading id="services-title" eyebrow="QUÉ HACEMOS" title="Una base digital preparada para crecer." description="Diseño y desarrollo web pensado para comunicar mejor lo que hacés." />
-      <p class="services__side-note">DEL PRIMER CONCEPTO<br />A UNA PRESENCIA DIGITAL CLARA <span>↘</span></p>
+      <SectionHeading id="services-title" eyebrow={copy.eyebrow} title={copy.title} description={copy.description} />
+      <p class="services__side-note">{copy.noteFirst}<br />{copy.noteSecond} <span>↘</span></p>
     </div>
     <div class="services__grid">
-      {services.map((service) => <ServiceCard {...service} />)}
+      {services.map((service) => <ServiceCard {...service} href={lang === 'en' ? '/en/contact' : '/contact'} linkText={copy.link} />)}
     </div>
-    <div class="services__footnote"><span class="services__footnote-mark"></span><p>Un servicio a medida de cada proyecto, con decisiones compartidas en cada etapa.</p></div>
+    <div class="services__footnote"><span class="services__footnote-mark"></span><p>{copy.footnote}</p></div>
   </div>
 </section>

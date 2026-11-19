@@ -1,13 +1,20 @@
 ---
 import SectionHeading from '../SectionHeading.astro';
-import { values } from '../../data/siteContent.js';
+import { getValues } from '../../data/siteContent.js';
+
+interface Props { lang?: 'es' | 'en' }
+const { lang = 'es' } = Astro.props;
+const values = getValues(lang);
+const copy = lang === 'en'
+  ? { eyebrow: 'WHY ZENTRA', title: 'Good decisions, from the very first step.', description: 'A thoughtful, collaborative way of working to build a digital presence with purpose.', stampFirst: 'DIGITAL', stampSecond: 'STUDIO', independent: 'INDEPENDENT BY NATURE' }
+  : { eyebrow: 'POR QUÉ ZENTRA', title: 'Buenas decisiones, desde el primer paso.', description: 'Una forma de trabajar cercana y enfocada en construir una presencia digital con sentido.', stampFirst: 'ESTUDIO', stampSecond: 'DIGITAL', independent: 'INDEPENDIENTE POR NATURALEZA' };
 ---
 
 <section class="section why" id="about" aria-labelledby="why-title">
   <div class="container">
     <div class="why__top">
-      <SectionHeading id="why-title" eyebrow="POR QUÉ ZENTRA" title="Buenas decisiones, desde el primer paso." description="Una forma de trabajar cercana y enfocada en construir una presencia digital con sentido." />
-      <div class="why__stamp" aria-hidden="true"><span>Z</span><i>ESTUDIO<br />DIGITAL</i></div>
+      <SectionHeading id="why-title" eyebrow={copy.eyebrow} title={copy.title} description={copy.description} />
+      <div class="why__stamp" aria-hidden="true"><span>Z</span><i>{copy.stampFirst}<br />{copy.stampSecond}</i></div>
     </div>
     <div class="why__grid">
       {values.map((value) => (
@@ -18,6 +25,6 @@ import { values } from '../../data/siteContent.js';
         </article>
       ))}
     </div>
-    <div class="why__signature"><span>INDEPENDIENTE POR NATURALEZA</span><span>BUILT FOR WHAT'S NEXT <i>✳</i></span></div>
+    <div class="why__signature"><span>{copy.independent}</span><span>BUILT FOR WHAT'S NEXT <i>✳</i></span></div>
   </div>
 </section>

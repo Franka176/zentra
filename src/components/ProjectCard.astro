@@ -5,9 +5,10 @@ interface Props {
   description: string;
   variant: 'nexo' | 'espiga' | 'bistro' | 'nova';
   wide?: boolean;
+  lang?: 'es' | 'en';
 }
 
-const { name, category, description, variant, wide = false } = Astro.props;
+const { name, category, description, variant, wide = false, lang = 'es' } = Astro.props;
 ---
 
 <article class:list={['project-card', `project-card--${variant}`, wide && 'project-card--wide']}>
@@ -21,7 +22,7 @@ const { name, category, description, variant, wide = false } = Astro.props;
         {variant === 'nova' && <div class="preview-nova"><span class="preview-brand">NOVA<span>TECH</span></span><div class="preview-grid"><i></i><i></i><i></i><i></i></div><span class="preview-action"></span></div>}
       </div>
     </div>
-    <span class="project-card__concept">Proyecto conceptual</span>
+    <span class="project-card__concept">{lang === 'en' ? 'Concept project' : 'Proyecto conceptual'}</span>
   </div>
   <div class="project-card__details">
     <div>

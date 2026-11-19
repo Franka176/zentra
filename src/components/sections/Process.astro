@@ -1,28 +1,42 @@
 ---
 import SectionHeading from '../SectionHeading.astro';
 
-const steps = [
+const stepsEs = [
   { name: 'Descubrimiento', english: 'DISCOVERY', copy: 'Entendemos el contexto, las necesidades y el objetivo del proyecto.' },
   { name: 'Planificación', english: 'PLANNING', copy: 'Ordenamos contenidos y definimos una dirección de trabajo compartida.' },
   { name: 'Diseño', english: 'DESIGN', copy: 'Damos forma a la estructura visual y a la experiencia del sitio.' },
   { name: 'Desarrollo', english: 'DEVELOPMENT', copy: 'Construimos la experiencia para que funcione en distintas pantallas.' },
   { name: 'Entrega', english: 'DELIVERY', copy: 'Preparamos el sitio y repasamos juntos el resultado antes de publicarlo.' },
 ];
+const stepsEn = [
+  { name: 'Discovery', english: 'DISCOVERY', copy: 'We learn about the context, needs, and goals behind the project.' },
+  { name: 'Planning', english: 'PLANNING', copy: 'We organize the content and agree on a shared direction for the work.' },
+  { name: 'Design', english: 'DESIGN', copy: 'We shape the visual structure and the experience of the website.' },
+  { name: 'Development', english: 'DEVELOPMENT', copy: 'We build the experience to work across different screen sizes.' },
+  { name: 'Delivery', english: 'DELIVERY', copy: 'We prepare the site and review the result together before launch.' },
+];
+
+interface Props { lang?: 'es' | 'en' }
+const { lang = 'es' } = Astro.props;
+const steps = lang === 'en' ? stepsEn : stepsEs;
+const copy = lang === 'en'
+  ? { eyebrow: 'HOW WE WORK', title: 'A clear process, step by step.', description: 'From the first conversation to a digital experience ready to meet the world.', note: 'Each project’s stages and scope are defined around its needs.' }
+  : { eyebrow: 'CÓMO TRABAJAMOS', title: 'Un proceso claro, paso a paso.', description: 'De la primera conversación a una experiencia digital lista para salir al mundo.', note: 'Las etapas y su alcance se definen en función de cada proyecto.' };
 ---
 
 <section class="section process dark-section" id="proceso" aria-labelledby="process-title">
   <div class="container">
-    <SectionHeading id="process-title" eyebrow="CÓMO TRABAJAMOS" title="Un proceso claro, paso a paso." description="De la primera conversación a una experiencia digital lista para salir al mundo." light />
+    <SectionHeading id="process-title" eyebrow={copy.eyebrow} title={copy.title} description={copy.description} light />
     <ol class="process__steps">
       {steps.map((step, index) => (
         <li class="process-step">
           <div class="process-step__marker"><span>{String(index + 1).padStart(2, '0')}</span><i></i></div>
-          <p class="process-step__english">{step.english}</p>
+          <p class="process-step__english">{lang === 'en' ? `STEP ${String(index + 1).padStart(2, '0')}` : step.english}</p>
           <h3>{step.name}</h3>
           <p class="process-step__copy">{step.copy}</p>
         </li>
       ))}
     </ol>
-    <div class="process__note"><span aria-hidden="true">✳</span><p>Las etapas y su alcance se definen en función de cada proyecto.</p></div>
+    <div class="process__note"><span aria-hidden="true">✳</span><p>{copy.note}</p></div>
   </div>
 </section>

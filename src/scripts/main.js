@@ -2,11 +2,14 @@ const menuButton = document.querySelector('.menu-toggle');
 const navigation = document.querySelector('#primary-navigation');
 
 if (menuButton && navigation) {
+  const english = document.documentElement.lang === 'en';
+  const openLabel = english ? 'Open menu' : 'Abrir menú';
+  const closeLabel = english ? 'Close menu' : 'Cerrar menú';
   const mobileNavigation = window.matchMedia('(max-width: 47.99rem)');
 
   const closeMenu = () => {
     menuButton.setAttribute('aria-expanded', 'false');
-    menuButton.setAttribute('aria-label', 'Abrir menú');
+    menuButton.setAttribute('aria-label', openLabel);
     navigation.classList.remove('is-open');
     navigation.inert = mobileNavigation.matches;
     document.body.classList.remove('menu-open');
@@ -17,7 +20,7 @@ if (menuButton && navigation) {
   menuButton.addEventListener('click', () => {
     const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
     menuButton.setAttribute('aria-expanded', String(!isOpen));
-    menuButton.setAttribute('aria-label', isOpen ? 'Abrir menú' : 'Cerrar menú');
+    menuButton.setAttribute('aria-label', isOpen ? openLabel : closeLabel);
     navigation.classList.toggle('is-open', !isOpen);
     navigation.inert = isOpen;
     document.body.classList.toggle('menu-open', !isOpen);

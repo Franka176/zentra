@@ -1,23 +1,34 @@
 ---
 import '../styles/global.css';
+import { getLocalePaths } from '../utils/locale.js';
 
 interface Props {
   title?: string;
   description?: string;
+  lang?: 'es' | 'en';
 }
 
+const route = getLocalePaths(Astro.url.pathname);
 const {
-  title = 'ZENTRA — Desarrollo digital',
-  description = 'Diseñamos y desarrollamos sitios web modernos para negocios y emprendedores. ZENTRA, desarrollo digital construido para lo que viene.',
+  title = route.language === 'en' ? 'ZENTRA — Digital Development' : 'ZENTRA — Desarrollo digital',
+  description = route.language === 'en'
+    ? 'Modern, responsive websites for businesses and entrepreneurs. Digital development built for what’s next.'
+    : 'Diseñamos y desarrollamos sitios web modernos para negocios y emprendedores. ZENTRA, desarrollo digital construido para lo que viene.',
+  lang = route.language,
 } = Astro.props;
-const pathname = Astro.url.pathname.replace(/\/+$/, '') || '/';
-const canonical = Astro.site ? new URL(pathname, Astro.site) : undefined;
+const currentPath = Astro.url.pathname.replace(/\/+$/, '') || '/';
+const canonical = Astro.site ? new URL(currentPath, Astro.site) : undefined;
+const spanishUrl = Astro.site ? new URL(route.spanishPath, Astro.site) : undefined;
+const englishUrl = Astro.site ? new URL(route.englishPath, Astro.site) : undefined;
 const sitemapUrl = Astro.site ? new URL('/sitemap-index.xml', Astro.site) : undefined;
 const socialImage = Astro.site ? new URL('/social-card.png', Astro.site) : undefined;
+const socialImageAlt = lang === 'en'
+  ? "ZENTRA — Digital Development. Built for what's next."
+  : "ZENTRA — Desarrollo digital. Built for what's next.";
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -26,21 +37,24 @@ const socialImage = Astro.site ? new URL('/social-card.png', Astro.site) : undef
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:locale" content="es_AR" />
+    <meta property="og:locale" content={lang === 'en' ? 'en_US' : 'es_AR'} />
     <meta property="og:site_name" content="ZENTRA" />
     {canonical && <link rel="canonical" href={canonical.href} />}
+    {spanishUrl && <link rel="alternate" hreflang="es-AR" href={spanishUrl.href} />}
+    {englishUrl && <link rel="alternate" hreflang="en" href={englishUrl.href} />}
+    {spanishUrl && <link rel="alternate" hreflang="x-default" href={spanishUrl.href} />}
     {canonical && <meta property="og:url" content={canonical.href} />}
     {socialImage && <meta property="og:image" content={socialImage.href} />}
     {socialImage && <meta property="og:image:secure_url" content={socialImage.href} />}
     {socialImage && <meta property="og:image:type" content="image/png" />}
     {socialImage && <meta property="og:image:width" content="1200" />}
     {socialImage && <meta property="og:image:height" content="630" />}
-    {socialImage && <meta property="og:image:alt" content="ZENTRA — Desarrollo digital. Built for what's next." />}
+    {socialImage && <meta property="og:image:alt" content={socialImageAlt} />}
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     {socialImage && <meta name="twitter:image" content={socialImage.href} />}
-    {socialImage && <meta name="twitter:image:alt" content="ZENTRA — Desarrollo digital. Built for what's next." />}
+    {socialImage && <meta name="twitter:image:alt" content={socialImageAlt} />}
     {sitemapUrl && <link rel="sitemap" href={sitemapUrl.href} />}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -52,7 +66,7 @@ const socialImage = Astro.site ? new URL('/social-card.png', Astro.site) : undef
     <title>{title}</title>
   </head>
   <body>
-    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <a class="skip-link" href="#contenido">{lang === 'en' ? 'Skip to content' : 'Saltar al contenido'}</a>
     <slot />
     <script>
       import '../scripts/main.js';

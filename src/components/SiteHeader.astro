@@ -1,29 +1,43 @@
 ---
 import Button from './Button.astro';
+import { getLocalePaths } from '../utils/locale.js';
+
+interface Props { lang?: 'es' | 'en' }
+const route = getLocalePaths(Astro.url.pathname);
+const { lang = route.language } = Astro.props;
+const prefix = lang === 'en' ? '/en' : '';
+const homeHref = lang === 'en' ? '/en' : '/';
+const spanishHref = route.spanishPath;
+const englishHref = route.englishPath;
+const copy = lang === 'en'
+  ? { home: 'ZENTRA, home', nav: 'Main navigation', services: 'Services', work: 'Work', about: 'About', contact: 'Contact', cta: 'Start a project', menuOpen: 'Open menu', menuClose: 'Close menu', language: 'Choose language' }
+  : { home: 'ZENTRA, inicio', nav: 'Navegación principal', services: 'Servicios', work: 'Proyectos', about: 'Nosotros', contact: 'Contacto', cta: 'Iniciar un proyecto', menuOpen: 'Abrir menú', menuClose: 'Cerrar menú', language: 'Elegir idioma' };
+const currentPath = Astro.url.pathname.replace(/\/+$/, '') || '/';
+
 ---
 
 <header class="site-header">
   <div class="container site-header__inner">
-    <a class="brand" href="/" aria-label="ZENTRA, inicio">
+    <a class="brand" href={homeHref} aria-label={copy.home}>
       <span class="brand__word">ZENTRA<span class="brand__dot">.</span></span>
       <span class="brand__descriptor">Digital Development</span>
     </a>
 
-    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Abrir menú">
+    <button class="menu-toggle" type="button" aria-label={copy.menuOpen} aria-expanded="false" aria-controls="primary-navigation">
       <span></span><span></span>
     </button>
 
-    <nav class="site-nav" id="primary-navigation" aria-label="Navegación principal" inert>
-      <a href="/services" aria-current={Astro.url.pathname === '/services' ? 'page' : undefined}>Servicios</a>
-      <a href="/work" aria-current={Astro.url.pathname === '/work' ? 'page' : undefined}>Proyectos</a>
-      <a href="/about" aria-current={Astro.url.pathname === '/about' ? 'page' : undefined}>Nosotros</a>
-      <a href="/contact" aria-current={Astro.url.pathname === '/contact' ? 'page' : undefined}>Contacto</a>
-      <div class="language-switch" aria-label="Idioma">
-        <span aria-current="true">ES</span>
+    <nav class="site-nav" id="primary-navigation" aria-label={copy.nav}>
+      <a href={prefix + '/services'} aria-current={currentPath === prefix + '/services' ? 'page' : undefined}>{copy.services}</a>
+      <a href={prefix + '/work'} aria-current={currentPath === prefix + '/work' ? 'page' : undefined}>{copy.work}</a>
+      <a href={prefix + '/about'} aria-current={currentPath === prefix + '/about' ? 'page' : undefined}>{copy.about}</a>
+      <a href={prefix + '/contact'} aria-current={currentPath === prefix + '/contact' ? 'page' : undefined}>{copy.contact}</a>
+      <div class="language-switch" aria-label={copy.language}>
+        <a class="language-switch__link" href={spanishHref} hreflang="es" lang="es" aria-current={lang === 'es' ? 'page' : undefined}>ES</a>
         <span class="language-switch__divider" aria-hidden="true">/</span>
-        <span class="language-switch__soon" aria-disabled="true" title="Versión en inglés próximamente">EN</span>
+        <a class="language-switch__link" href={englishHref} hreflang="en" lang="en" aria-current={lang === 'en' ? 'page' : undefined}>EN</a>
       </div>
-      <Button href="/contact" variant="primary" className="site-nav__cta" arrow>Hablemos</Button>
+      <Button href={prefix + '/contact'} variant="primary" className="site-nav__cta" arrow>{copy.cta}</Button>
     </nav>
   </div>
 </header>

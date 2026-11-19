@@ -1,14 +1,20 @@
 ---
 import Button from '../Button.astro';
+
+interface Props { lang?: 'es' | 'en' }
+const { lang = 'es' } = Astro.props;
+const copy = lang === 'en'
+  ? { idea: 'HAVE AN IDEA?', push: "LET'S MOVE IT FORWARD", first: 'Your next step', second: 'starts here.', description: 'See how we can help you build a clearer digital presence.', button: 'Start a project', href: '#contact' }
+  : { idea: '¿TENÉS UNA IDEA?', push: 'HAGÁMOSLA AVANZAR', first: 'Tu próximo paso', second: 'empieza acá.', description: 'Conocé cómo podemos ayudarte a construir una presencia digital más clara.', button: 'Iniciar un proyecto', href: '#contacto' };
 ---
 
 <section class="cta-section" aria-labelledby="cta-title">
   <div class="container cta-section__inner">
-    <div class="cta-section__index"><span>¿TENÉS UNA IDEA?</span><span>HAGÁMOSLA AVANZAR <i>↘</i></span></div>
-    <h2 id="cta-title">Tu próximo paso<br /><span>empieza acá.</span></h2>
+    <div class="cta-section__index"><span>{copy.idea}</span><span>{copy.push} <i>↘</i></span></div>
+    <h2 id="cta-title">{copy.first}<br /><span>{copy.second}</span></h2>
     <div class="cta-section__bottom">
-      <p>Conocé cómo podemos ayudarte a construir una presencia digital más clara.</p>
-      <Button href="#contacto" variant="secondary" arrow>Iniciar un proyecto</Button>
+      <p>{copy.description}</p>
+      <Button href={copy.href} variant="secondary" arrow>{copy.button}</Button>
     </div>
     <div class="cta-section__shape" aria-hidden="true"><span></span><i></i></div>
   </div>

@@ -1,0 +1,47 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import PageHero from '../../components/PageHero.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import Button from '../../components/Button.astro';
+import { getProjects } from '../../data/siteContent.js';
+
+const projects = getProjects('en');
+---
+
+<MainLayout
+  lang="en"
+  title="Concept Projects | ZENTRA"
+  description="Visual explorations by ZENTRA for Nexo Digital, La Espiga, Bistro Verde, and NovaTech. Each is clearly identified as a concept project."
+>
+  <SiteHeader />
+  <main id="contenido">
+    <PageHero
+      eyebrow="PROJECTS"
+      title="Digital ideas for different worlds."
+      description="A selection of visual concepts exploring how different businesses might present themselves online."
+      note="VISUAL CONCEPTS / 01—04"
+    />
+    <section class="section work work-page" aria-labelledby="work-page-title">
+      <div class="container">
+        <div class="work-page__intro">
+          <SectionHeading id="work-page-title" eyebrow="ZENTRA EXPLORATIONS" title="Four directions, four contexts." description="Each piece is a concept exercise. None represents a client or confirmed commercial project." light />
+          <p class="work__index">NEXO DIGITAL<br />LA ESPIGA<br />BISTRO VERDE<br />NOVATECH</p>
+        </div>
+        <div class="work__grid">
+          {projects.map((project) => <ProjectCard {...project} lang="en" />)}
+        </div>
+        <p class="work__disclaimer"><span aria-hidden="true">✳</span> All projects on this page are concepts. No commercial results, testimonials, technologies, or business links are claimed.</p>
+      </div>
+    </section>
+    <section class="internal-cta internal-cta--light" aria-labelledby="work-cta-title">
+      <div class="container internal-cta__inner">
+        <div><p class="eyebrow"><span class="eyebrow__mark" aria-hidden="true"></span>YOUR OWN PROJECT</p><h2>Your idea could be next.</h2></div>
+        <Button href="/en/contact" variant="primary" arrow>Contact ZENTRA</Button>
+      </div>
+    </section>
+  </main>
+  <SiteFooter />
+</MainLayout>
