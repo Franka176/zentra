@@ -1,6 +1,6 @@
 export const services = [
   {
-    id: 'landing-pages', number: '01', icon: 'landing', title: 'Landing pages',
+    id: 'landing-pages', number: '01', icon: 'landing', title: 'Landing Pages', localTitle: 'Landing pages',
     description: 'Páginas enfocadas en presentar una propuesta, un producto o una iniciativa con claridad.',
     summary: 'Una página directa para presentar una propuesta concreta y guiar la navegación hacia una acción clara.',
     includes: ['Estructura y jerarquía de contenido', 'Diseño adaptable a móvil, tablet y escritorio', 'Desarrollo de una página rápida y accesible', 'Enlaces y llamados a la acción definidos para el proyecto'],

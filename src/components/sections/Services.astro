@@ -18,7 +18,7 @@ const copy = lang === 'en'
       <p class="services__side-note">{copy.noteFirst}<br />{copy.noteSecond} <span>↘</span></p>
     </div>
     <div class="services__grid">
-      {services.map((service) => <ServiceCard {...service} href={lang === 'en' ? '/en/contact' : '/contact'} linkText={copy.link} />)}
+      {services.map((service) => <ServiceCard {...service} title={lang === 'en' ? service.title : service.localTitle ?? service.title} href={lang === 'en' ? '/en/contact' : '/contact'} linkText={copy.link} />)}
     </div>
     <div class="services__footnote"><span class="services__footnote-mark"></span><p>{copy.footnote}</p></div>
   </div>
