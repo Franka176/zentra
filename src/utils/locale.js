@@ -6,6 +6,7 @@ const pagePaths = new Set([
   '/contact',
   '/privacy',
   '/terms',
+  '/thanks',
 ]);
 
 export function getLocalePaths(pathname) {

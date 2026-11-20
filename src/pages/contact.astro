@@ -5,42 +5,49 @@ import SiteFooter from '../components/SiteFooter.astro';
 import PageHero from '../components/PageHero.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import Button from '../components/Button.astro';
+import ContactForm from '../components/ContactForm.astro';
+
+const email = 'zentra.digital.studio@gmail.com';
+const whatsapp = 'https://wa.me/5492281325647';
 ---
 
 <MainLayout
   title="Contacto | Iniciá un proyecto con ZENTRA"
-  description="Conocé cómo preparar una consulta para ZENTRA. Los canales de contacto se habilitarán cuando se configuren los datos reales del estudio."
+  description="Contactá a ZENTRA por correo o WhatsApp, o contanos sobre tu proyecto mediante el formulario."
 >
   <SiteHeader />
   <main id="contenido">
     <PageHero
       eyebrow="CONTACTO"
       title="Toda buena web empieza con una conversación."
-      description="Contanos qué te gustaría construir. Estamos preparando los canales para recibir consultas de manera directa."
+      description="Contanos qué te gustaría construir. Elegí el canal que te resulte más cómodo."
     />
 
     <section class="section contact-page" aria-labelledby="contact-page-title">
-      <div class="container contact-page__grid">
-        <div class="contact-page__intro">
-          <SectionHeading id="contact-page-title" eyebrow="HABLEMOS DE TU IDEA" title="El canal de contacto todavía no está habilitado." description="No publicamos un formulario que no pueda entregar tu mensaje. Esta página queda preparada para incorporar los datos reales de ZENTRA." />
-          <div class="contact-status"><span aria-hidden="true"></span><p><strong>En preparación</strong><br />Todavía no hay una dirección de correo, teléfono ni servicio de recepción conectado.</p></div>
-          <div class="contact-page__actions">
-            <Button href="/services" variant="primary" arrow>Explorar servicios</Button>
-            <Button href="/work" variant="text" arrow>Ver proyectos</Button>
+      <div class="container">
+        <div class="contact-page__grid">
+          <div class="contact-page__intro">
+            <SectionHeading id="contact-page-title" eyebrow="HABLEMOS DE TU IDEA" title="El próximo paso empieza con tu consulta." description="Podés escribirnos directamente o enviar los detalles básicos de tu proyecto en el formulario." />
+            <div class="contact-channels" aria-label="Canales de contacto">
+              <a class="contact-channel" href={`mailto:${email}`}>
+                <span class="contact-channel__icon" aria-hidden="true">@</span>
+                <span><strong>Correo electrónico</strong><small>{email}</small></span>
+                <span class="contact-channel__arrow" aria-hidden="true">↗</span>
+              </a>
+              <a class="contact-channel" href={whatsapp} target="_blank" rel="noopener noreferrer">
+                <span class="contact-channel__icon" aria-hidden="true">↗</span>
+                <span><strong>WhatsApp</strong><small>Escribinos por WhatsApp</small></span>
+                <span class="contact-channel__arrow" aria-hidden="true">↗</span>
+              </a>
+            </div>
+            <div class="contact-page__actions">
+              <Button href="/services" variant="text" arrow>Explorar servicios</Button>
+              <Button href="/work" variant="text" arrow>Ver proyectos</Button>
+            </div>
           </div>
-        </div>
 
-        <aside class="contact-setup" aria-labelledby="contact-setup-title">
-          <p class="eyebrow"><span class="eyebrow__mark" aria-hidden="true"></span>PARA ACTIVAR CONTACTO</p>
-          <h2 id="contact-setup-title">Datos que faltan configurar</h2>
-          <ul class="contact-setup__list">
-            <li><span>01</span><div><h3>Canal principal</h3><p>Dirección de email confirmada o teléfono/WhatsApp que el propietario quiera publicar.</p></div></li>
-            <li><span>02</span><div><h3>Formulario, si se necesita</h3><p>Destino real de envío (servicio o endpoint), campos a solicitar y persona responsable de recibirlo.</p></div></li>
-            <li><span>03</span><div><h3>Privacidad y seguimiento</h3><p>Texto de privacidad, tratamiento de los datos y plazo esperado de respuesta.</p></div></li>
-            <li><span>04</span><div><h3>Canales públicos opcionales</h3><p>URLs de redes sociales o perfiles que estén activos y autorizados para publicar.</p></div></li>
-          </ul>
-          <p class="contact-setup__notice">No se envía ni almacena información desde esta página.</p>
-        </aside>
+          <ContactForm lang="es" />
+        </div>
       </div>
     </section>
   </main>

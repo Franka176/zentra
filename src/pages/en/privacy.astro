@@ -8,53 +8,55 @@ import PageHero from '../../components/PageHero.astro';
 <MainLayout
   lang="en"
   title="Privacy | ZENTRA Digital Development"
-  description="Preliminary information about the current ZENTRA website, external fonts, and details to confirm before this privacy notice is published."
+  description="Preliminary notice about information submitted to ZENTRA through the contact form and its processing by FormSubmit."
 >
   <SiteHeader />
   <main id="contenido">
     <PageHero
       eyebrow="SITE INFORMATION"
       title="Privacy and data use."
-      description="This page preliminarily describes what happens when you visit the site in its current form."
+      description="This preliminary notice explains what information is requested when you send an inquiry to ZENTRA."
     />
 
     <section class="section legal-page" aria-label="Privacy notice">
       <div class="container legal-page__container">
         <aside class="legal-draft" role="note">
-          <strong>Review required before publication</strong>
-          <p>The site owner’s details, a privacy contact channel, and a review of hosting providers and technical logs still need to be confirmed.</p>
+          <strong>Preliminary document; review is required before it is published as final.</strong>
+          <p>The site owner’s legal identity, criteria for retaining and deleting messages, and review for the markets served still need to be completed.</p>
         </aside>
 
         <p class="legal-page__updated">Preliminary version. Effective date: to be defined.</p>
 
         <div class="legal-page__content">
-          <section aria-labelledby="privacy-scope">
-            <h2 id="privacy-scope">What this version of the site does</h2>
-            <p>This is an informational website. It currently has no inquiry forms, user accounts, payments, advertising, first-party analytics tools, or browser data storage. The contact page does not send or store messages.</p>
-            <p>The server hosting the site may process technical data needed to deliver its pages. The final provider, the scope of its logs, and applicable retention periods must be confirmed when publication is configured.</p>
+          <section aria-labelledby="privacy-form-data">
+            <h2 id="privacy-form-data">Information requested</h2>
+            <p>The contact form requests your name, email address, service of interest, and a message about your project. Fields are required so ZENTRA can respond to the inquiry.</p>
           </section>
 
-          <section aria-labelledby="privacy-fonts">
-            <h2 id="privacy-fonts">External fonts</h2>
-            <p>To display the typefaces, the browser requests resources from Google Fonts at <code>fonts.googleapis.com</code> and <code>fonts.gstatic.com</code>. As part of those requests, Google receives the IP address needed to deliver the files and other technical connection data. Read <a href="https://fonts.googleblog.com/2022/11/your-privacy-and-google-fonts.html" target="_blank" rel="noreferrer">Google Fonts privacy information</a> and <a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">Google’s privacy policy</a>.</p>
-            <p>Before publication, the site owner should confirm whether to keep this external delivery or host the fonts alongside the site, and review the terms that apply to its audience.</p>
+          <section aria-labelledby="privacy-purpose">
+            <h2 id="privacy-purpose">Purpose and receipt</h2>
+            <p>ZENTRA uses this information to understand the inquiry, consider the requested service, and reply by email. Form inquiries are received at the business email address <a href="mailto:zentra.digital.studio@gmail.com">zentra.digital.studio@gmail.com</a>.</p>
+            <p>The site also provides links to start an email or WhatsApp conversation. Those external services process information that a person chooses to send through their own applications.</p>
           </section>
 
-          <section aria-labelledby="privacy-contact">
-            <h2 id="privacy-contact">Inquiries and contact details</h2>
-            <p>The site does not yet have an active channel for receiving inquiries. It therefore does not request personal data or provide a way to submit privacy-related requests.</p>
-            <p>Before this notice is published, it should identify who is responsible for the site, provide a real contact email, explain how requests are received and answered, and describe what information would be processed if a form is enabled later.</p>
+          <section aria-labelledby="privacy-processor">
+            <h2 id="privacy-processor">External form processing</h2>
+            <p>When you submit the form, the information is sent in a POST request to FormSubmit, an external provider that processes the form and forwards the inquiry to ZENTRA’s business email. FormSubmit may process information under its own terms and privacy practices. Read its <a href="https://formsubmit.co/privacy" target="_blank" rel="noreferrer">privacy information</a>.</p>
+            <p>The site does not use its own backend for this form. Please do not include passwords, financial details, or other sensitive information that is not needed to describe the project.</p>
+          </section>
+
+          <section aria-labelledby="privacy-storage">
+            <h2 id="privacy-storage">Retention and inquiries</h2>
+            <p>ZENTRA still needs to define how long messages received in the business inbox will be kept and when they will be deleted. For privacy-related questions, you can email <a href="mailto:zentra.digital.studio@gmail.com">zentra.digital.studio@gmail.com</a>.</p>
           </section>
 
           <section aria-labelledby="privacy-completion">
-            <h2 id="privacy-completion">Details still to be completed</h2>
+            <h2 id="privacy-completion">Legal details to complete</h2>
             <ul>
               <li>The site owner’s legal identity and the name under which ZENTRA operates.</li>
-              <li>A real email address for privacy inquiries and requests.</li>
-              <li>The final hosting provider, the technical data it records, and applicable retention periods.</li>
-              <li>Whether to keep Google Fonts or host the typefaces locally.</li>
-              <li>If a form is added: the receiving service, requested data, purpose, people with access, and retention periods.</li>
-              <li>An effective date and legal review for the markets where the site will be offered.</li>
+              <li>Criteria and periods for retaining and deleting messages.</li>
+              <li>Review of external providers’ processing and obligations that apply to the markets served.</li>
+              <li>An effective date and legal review of the final text.</li>
             </ul>
           </section>
         </div>

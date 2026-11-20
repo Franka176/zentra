@@ -7,53 +7,55 @@ import PageHero from '../components/PageHero.astro';
 
 <MainLayout
   title="Privacidad | ZENTRA Digital Development"
-  description="Información sobre el funcionamiento actual del sitio ZENTRA, las fuentes externas y los datos que deben confirmarse antes de publicar esta política."
+  description="Aviso preliminar sobre los datos enviados a ZENTRA por el formulario de contacto y el procesamiento externo de FormSubmit."
 >
   <SiteHeader />
   <main id="contenido">
     <PageHero
       eyebrow="INFORMACIÓN DEL SITIO"
       title="Privacidad y uso de datos."
-      description="Esta página describe de forma preliminar qué ocurre al visitar el sitio en su versión actual."
+      description="Este aviso preliminar explica qué información se solicita cuando enviás una consulta a ZENTRA."
     />
 
     <section class="section legal-page" aria-label="Política de privacidad">
       <div class="container legal-page__container">
         <aside class="legal-draft" role="note">
-          <strong>Revisión pendiente antes de publicar</strong>
-          <p>Faltan los datos del titular, el canal para consultas de privacidad y la revisión de los proveedores y registros técnicos de alojamiento.</p>
+          <strong>Documento preliminar; requiere revisión antes de publicarse como versión definitiva.</strong>
+          <p>Faltan la identidad legal del titular, los criterios de conservación y eliminación de mensajes y la revisión aplicable a los mercados donde se ofrece el sitio.</p>
         </aside>
 
         <p class="legal-page__updated">Versión preliminar. Fecha de vigencia: pendiente de definir.</p>
 
         <div class="legal-page__content">
-          <section aria-labelledby="privacy-scope">
-            <h2 id="privacy-scope">Qué hace esta versión del sitio</h2>
-            <p>El sitio es informativo. Actualmente no incluye formularios de consulta, cuentas de usuario, pagos, publicidad, herramientas propias de analítica ni almacenamiento de datos en el navegador. La página de contacto no envía ni almacena mensajes.</p>
-            <p>El servidor que aloje el sitio puede procesar datos técnicos necesarios para entregar las páginas. El proveedor definitivo, el alcance de sus registros y sus plazos de conservación deben confirmarse cuando se configure la publicación.</p>
+          <section aria-labelledby="privacy-form-data">
+            <h2 id="privacy-form-data">Datos solicitados</h2>
+            <p>El formulario de contacto solicita nombre, correo electrónico, servicio de interés y un mensaje sobre el proyecto. Los campos están marcados como obligatorios para poder responder a la consulta.</p>
           </section>
 
-          <section aria-labelledby="privacy-fonts">
-            <h2 id="privacy-fonts">Fuentes tipográficas externas</h2>
-            <p>Para mostrar las tipografías, el navegador solicita recursos a Google Fonts en <code>fonts.googleapis.com</code> y <code>fonts.gstatic.com</code>. Como parte de esas solicitudes, Google recibe la dirección IP necesaria para entregar los archivos y otros datos técnicos de la conexión. Consultá la <a href="https://fonts.googleblog.com/2022/11/your-privacy-and-google-fonts.html" target="_blank" rel="noreferrer">información de privacidad de Google Fonts</a> y la <a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">política de privacidad de Google</a>.</p>
-            <p>Antes de publicar, el titular debe confirmar si mantendrá esta carga externa o preferirá alojar las fuentes junto al sitio, y revisar las condiciones aplicables a su público.</p>
+          <section aria-labelledby="privacy-purpose">
+            <h2 id="privacy-purpose">Finalidad y recepción</h2>
+            <p>ZENTRA utiliza estos datos para entender la consulta, considerar el servicio solicitado y responder por correo. Las consultas del formulario se reciben en el correo comercial <a href="mailto:zentra.digital.studio@gmail.com">zentra.digital.studio@gmail.com</a>.</p>
+            <p>El sitio también ofrece enlaces para iniciar un correo o una conversación por WhatsApp. Esos servicios externos procesan los datos que la persona decida enviar desde sus propias aplicaciones.</p>
           </section>
 
-          <section aria-labelledby="privacy-contact">
-            <h2 id="privacy-contact">Consultas y datos de contacto</h2>
-            <p>Este sitio todavía no dispone de un canal habilitado para recibir consultas. Por eso, no solicita datos personales ni ofrece un medio para ejercer solicitudes relacionadas con privacidad.</p>
-            <p>Antes de publicar esta política se deberá indicar quién es el responsable del sitio, un correo real de contacto, cómo se reciben y responden solicitudes y qué información se procesa si más adelante se activa un formulario.</p>
+          <section aria-labelledby="privacy-processor">
+            <h2 id="privacy-processor">Procesamiento externo del formulario</h2>
+            <p>Al enviar el formulario, los datos se transmiten mediante una solicitud POST a FormSubmit, un proveedor externo que procesa el formulario y reenvía la consulta al correo comercial de ZENTRA. FormSubmit puede procesar los datos conforme a sus propias condiciones y prácticas de privacidad. Consultá su <a href="https://formsubmit.co/privacy" target="_blank" rel="noreferrer">información de privacidad</a>.</p>
+            <p>El sitio no incorpora un backend propio para este formulario. No incluyas en el mensaje contraseñas, datos financieros ni otra información sensible que no sea necesaria para describir el proyecto.</p>
+          </section>
+
+          <section aria-labelledby="privacy-storage">
+            <h2 id="privacy-storage">Conservación y consultas</h2>
+            <p>Los plazos para conservar y eliminar los mensajes recibidos en el correo comercial deben ser definidos por ZENTRA antes de finalizar este aviso. Para consultas relacionadas con privacidad, podés escribir a <a href="mailto:zentra.digital.studio@gmail.com">zentra.digital.studio@gmail.com</a>.</p>
           </section>
 
           <section aria-labelledby="privacy-completion">
-            <h2 id="privacy-completion">Información que falta completar</h2>
+            <h2 id="privacy-completion">Información legal pendiente</h2>
             <ul>
               <li>Identidad legal del titular y nombre bajo el que opera ZENTRA.</li>
-              <li>Correo real para consultas de privacidad y solicitudes.</li>
-              <li>Proveedor final de alojamiento, datos técnicos que registre y plazos de conservación aplicables.</li>
-              <li>Decisión sobre Google Fonts o alojamiento local de las tipografías.</li>
-              <li>Si se incorpora un formulario: servicio receptor, datos solicitados, finalidad, personas con acceso y plazos de conservación.</li>
-              <li>Fecha de vigencia y revisión legal según los mercados donde se ofrezca el sitio.</li>
+              <li>Criterios y plazos de conservación y eliminación de mensajes.</li>
+              <li>Revisión del tratamiento por proveedores externos y de las obligaciones aplicables a los mercados atendidos.</li>
+              <li>Fecha de vigencia y revisión legal del texto definitivo.</li>
             </ul>
           </section>
         </div>

@@ -1,0 +1,48 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import SiteHeader from './SiteHeader.astro';
+import SiteFooter from './SiteFooter.astro';
+import PageHero from './PageHero.astro';
+import Button from './Button.astro';
+
+interface Props { lang?: 'es' | 'en' }
+const { lang = 'es' } = Astro.props;
+const english = lang === 'en';
+const copy = english
+  ? {
+      title: 'Thanks for reaching out.',
+      description: 'FormSubmit confirmed that your inquiry was accepted. Email delivery may take a little time; check your inbox and spam folder if you expect a reply.',
+      eyebrow: 'INQUIRY SUBMITTED',
+      action: 'Back to contact',
+      home: 'Go to home',
+      meta: 'Your message has been sent for processing. This confirmation does not guarantee that an email reply has already arrived.',
+      pageTitle: 'Thanks | ZENTRA Digital Development',
+    }
+  : {
+      title: 'Gracias por escribirnos.',
+      description: 'FormSubmit confirmó que recibió tu consulta. La entrega del correo puede demorar; revisá también la carpeta de correo no deseado si esperás una respuesta.',
+      eyebrow: 'CONSULTA ENVIADA',
+      action: 'Volver a contacto',
+      home: 'Ir al inicio',
+      meta: 'Tu mensaje quedó enviado para su procesamiento. Esta confirmación no garantiza que la respuesta por correo ya haya llegado.',
+      pageTitle: 'Gracias | ZENTRA Digital Development',
+    };
+---
+
+<MainLayout lang={lang} title={copy.pageTitle} description={copy.description}>
+  <SiteHeader lang={lang} />
+  <main id="contenido">
+    <PageHero eyebrow={copy.eyebrow} title={copy.title} description={copy.description} />
+    <section class="section thanks-page" aria-label={english ? 'Submission confirmation' : 'Confirmación de envío'}>
+      <div class="container thanks-page__inner">
+        <span class="thanks-page__mark" aria-hidden="true">✓</span>
+        <p>{copy.meta}</p>
+        <div class="thanks-page__actions">
+          <Button href={english ? '/en/contact' : '/contact'} variant="primary" arrow>{copy.action}</Button>
+          <Button href={english ? '/en/' : '/'} variant="text">{copy.home}</Button>
+        </div>
+      </div>
+    </section>
+  </main>
+  <SiteFooter />
+</MainLayout>

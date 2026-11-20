@@ -1,0 +1,97 @@
+---
+interface Props { lang?: 'es' | 'en' }
+const { lang = 'es' } = Astro.props;
+const isEnglish = lang === 'en';
+const email = 'zentra.digital.studio@gmail.com';
+const formAction = `https://formsubmit.co/${email}`;
+const ajaxAction = `https://formsubmit.co/ajax/${email}`;
+const thanksPath = isEnglish ? '/en/thanks' : '/thanks';
+const thanksUrl = Astro.site ? new URL(thanksPath, Astro.site).href : undefined;
+const text = isEnglish
+  ? {
+      title: 'Tell us about your project',
+      intro: 'Share a few details and we’ll get back to you by email.',
+      name: 'Name', namePlaceholder: 'Your name', email: 'Email address', emailPlaceholder: 'you@example.com',
+      service: 'Service of interest', servicePlaceholder: 'Choose a service', landing: 'Landing Pages', business: 'Business Websites', redesign: 'Website Redesign', maintenance: 'Website Maintenance', other: 'Other',
+      message: 'Project details', messagePlaceholder: 'What would you like to build?', messageHint: 'Please include at least 20 characters.',
+      submit: 'Send inquiry', sending: 'Sending…', required: 'Required field',
+      ready: 'Your message will be sent securely through FormSubmit to the ZENTRA business inbox.',
+      invalid: 'Check the highlighted fields and try again.', pending: 'Sending your inquiry. Please keep this page open.',
+      success: 'FormSubmit confirmed your inquiry. Taking you to the confirmation page…',
+      error: 'We could not confirm the submission. Please try again or email us directly.',
+      privacy: 'By sending this form, you agree to share these details so ZENTRA can respond. FormSubmit processes the submission as an external service. See our', privacyLink: 'Privacy notice',
+      trapLabel: 'Leave this field empty',
+    }
+  : {
+      title: 'Contanos sobre tu proyecto',
+      intro: 'Compartí algunos detalles y te responderemos por correo.',
+      name: 'Nombre', namePlaceholder: 'Tu nombre', email: 'Correo electrónico', emailPlaceholder: 'vos@ejemplo.com',
+      service: 'Servicio de interés', servicePlaceholder: 'Elegí un servicio', landing: 'Landing Pages', business: 'Business Websites', redesign: 'Website Redesign', maintenance: 'Website Maintenance', other: 'Otro',
+      message: 'Detalles del proyecto', messagePlaceholder: '¿Qué te gustaría construir?', messageHint: 'Escribí al menos 20 caracteres.',
+      submit: 'Enviar consulta', sending: 'Enviando…', required: 'Campo obligatorio',
+      ready: 'Tu mensaje se enviará mediante FormSubmit al correo comercial de ZENTRA.',
+      invalid: 'Revisá los campos indicados e intentá nuevamente.', pending: 'Enviando tu consulta. Mantené esta página abierta.',
+      success: 'FormSubmit confirmó tu consulta. Te llevamos a la página de confirmación…',
+      error: 'No pudimos confirmar el envío. Intentá nuevamente o escribinos por correo.',
+      privacy: 'Al enviar este formulario, compartís estos datos para que ZENTRA pueda responderte. FormSubmit procesa el envío como un servicio externo. Consultá nuestro', privacyLink: 'Aviso de privacidad',
+      trapLabel: 'Dejá este campo vacío',
+    };
+---
+
+<form
+  class="contact-form"
+  action={formAction}
+  method="POST"
+  data-contact-form
+  data-ajax-action={ajaxAction}
+  data-thanks-path={thanksPath}
+  data-lang={lang}
+>
+  <input type="hidden" name="_subject" value="New project inquiry - Zentra" />
+  <input type="hidden" name="_template" value="table" />
+  {thanksUrl && <input type="hidden" name="_next" value={thanksUrl} />}
+
+  <div class="contact-form__trap" aria-hidden="true">
+    <label for={`contact-company-${lang}`}>{text.trapLabel}</label>
+    <input id={`contact-company-${lang}`} type="text" name="_honey" tabindex="-1" autocomplete="off" />
+  </div>
+
+  <h2>{text.title}</h2>
+  <p class="contact-form__intro">{text.intro}</p>
+
+  <div class="contact-form__fields">
+    <div class="form-field">
+      <label for={`contact-name-${lang}`}>{text.name} <span aria-hidden="true">*</span></label>
+      <input id={`contact-name-${lang}`} name="name" type="text" autocomplete="name" minlength="2" maxlength="100" required />
+    </div>
+    <div class="form-field">
+      <label for={`contact-email-${lang}`}>{text.email} <span aria-hidden="true">*</span></label>
+      <input id={`contact-email-${lang}`} name="email" type="email" autocomplete="email" maxlength="254" placeholder={text.emailPlaceholder} required />
+    </div>
+    <div class="form-field form-field--full">
+      <label for={`contact-service-${lang}`}>{text.service} <span aria-hidden="true">*</span></label>
+      <select id={`contact-service-${lang}`} name="service" required>
+        <option value="" selected disabled>{text.servicePlaceholder}</option>
+        <option value="Landing Pages">{text.landing}</option>
+        <option value="Business Websites">{text.business}</option>
+        <option value="Website Redesign">{text.redesign}</option>
+        <option value="Website Maintenance">{text.maintenance}</option>
+        <option value="Other">{text.other}</option>
+      </select>
+    </div>
+    <div class="form-field form-field--full">
+      <label for={`contact-message-${lang}`}>{text.message} <span aria-hidden="true">*</span></label>
+      <textarea id={`contact-message-${lang}`} name="message" rows="5" minlength="20" maxlength="3000" placeholder={text.messagePlaceholder} aria-describedby={`contact-message-hint-${lang}`} required></textarea>
+      <small id={`contact-message-hint-${lang}`}>{text.messageHint}</small>
+    </div>
+  </div>
+
+  <div class="contact-form__submit-row">
+    <button class="button button--primary" type="submit" data-submit-button>
+      <span data-submit-label>{text.submit}</span>
+      <svg aria-hidden="true" viewBox="0 0 20 20" width="18" height="18"><path d="M3.75 10h12.5m-5-5 5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>
+    </button>
+    <p class="contact-form__privacy">{text.privacy} <a href={lang === 'en' ? '/en/privacy' : '/privacy'}>{text.privacyLink}</a>.</p>
+  </div>
+  <p class="contact-form__status" data-form-status role="status" aria-live="polite" aria-atomic="true">{text.ready}</p>
+</form>
