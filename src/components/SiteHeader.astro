@@ -32,7 +32,7 @@ const currentPath = Astro.url.pathname.replace(/\/+$/, '') || '/';
       <a href={prefix + '/work'} aria-current={currentPath === prefix + '/work' ? 'page' : undefined}>{copy.work}</a>
       <a href={prefix + '/about'} aria-current={currentPath === prefix + '/about' ? 'page' : undefined}>{copy.about}</a>
       <a href={prefix + '/contact'} aria-current={currentPath === prefix + '/contact' ? 'page' : undefined}>{copy.contact}</a>
-      <div class="language-switch" aria-label={copy.language}>
+      <div class="language-switch" role="group" aria-label={copy.language}>
         <a class="language-switch__link" href={spanishHref} hreflang="es" lang="es" aria-current={lang === 'es' ? 'page' : undefined}>ES</a>
         <span class="language-switch__divider" aria-hidden="true">/</span>
         <a class="language-switch__link" href={englishHref} hreflang="en" lang="en" aria-current={lang === 'en' ? 'page' : undefined}>EN</a>

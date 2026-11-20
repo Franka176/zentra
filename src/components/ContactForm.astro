@@ -47,7 +47,7 @@ const text = isEnglish
   data-thanks-path={thanksPath}
   data-lang={lang}
 >
-  <input type="hidden" name="_subject" value="New project inquiry - Zentra" />
+  <input type="hidden" name="_subject" value={isEnglish ? 'New project inquiry - Zentra' : 'Nueva consulta de proyecto - Zentra'} />
   <input type="hidden" name="_template" value="table" />
   {thanksUrl && <input type="hidden" name="_next" value={thanksUrl} />}
 
@@ -72,10 +72,10 @@ const text = isEnglish
       <label for={`contact-service-${lang}`}>{text.service} <span aria-hidden="true">*</span></label>
       <select id={`contact-service-${lang}`} name="service" required>
         <option value="" selected disabled>{text.servicePlaceholder}</option>
-        <option value="Landing Pages">{text.landing}</option>
-        <option value="Business Websites">{text.business}</option>
-        <option value="Website Redesign">{text.redesign}</option>
-        <option value="Website Maintenance">{text.maintenance}</option>
+        <option value="Landing Pages">{isEnglish ? text.landing : 'Landing pages'}</option>
+        <option value="Business Websites">{isEnglish ? text.business : 'Sitios web para negocios'}</option>
+        <option value="Website Redesign">{isEnglish ? text.redesign : 'Rediseño web'}</option>
+        <option value="Website Maintenance">{isEnglish ? text.maintenance : 'Mantenimiento web'}</option>
         <option value="Other">{text.other}</option>
       </select>
     </div>

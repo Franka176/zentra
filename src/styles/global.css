@@ -10,7 +10,7 @@ a { color: inherit; text-decoration: none; }
 button { color: inherit; }
 img, svg { display: block; }
 ::selection { color: var(--color-midnight-navy); background: var(--color-digital-teal); }
-:focus-visible { outline: 3px solid var(--color-digital-teal); outline-offset: 4px; }
+:focus-visible { outline: 3px solid var(--color-midnight-navy); outline-offset: 2px; box-shadow: 0 0 0 6px var(--color-cloud-white); }
 .container { width: min(var(--container-max), calc(100% - 2 * var(--container-gutter))); margin-inline: auto; }
 .section { padding-block: var(--section-space); }
 .dark-section { color: var(--color-cloud-white); background: var(--color-midnight-navy); }
@@ -477,8 +477,8 @@ img, svg { display: block; }
 .contact-page__intro .section-heading h2 { max-width: 14ch; }
 .contact-channels { display: grid; max-width: 480px; gap: 10px; margin-top: 28px; }
 .contact-channel { display: grid; grid-template-columns: 38px minmax(0, 1fr) 20px; align-items: center; gap: 13px; min-width: 0; padding: 15px 16px; border: 1px solid var(--color-border); border-radius: var(--radius-md); color: var(--color-midnight-navy); background: #fff; text-decoration: none; transition: border-color var(--motion-fast), transform var(--motion-fast), box-shadow var(--motion-fast); }
-.contact-channel:hover { transform: translateY(-2px); border-color: #a9bee8; box-shadow: 0 8px 24px rgb(11 18 32 / 7%); }
-.contact-channel:focus-visible { outline: 3px solid rgb(57 120 246 / 44%); outline-offset: 3px; }
+.contact-channel:hover { transform: translateY(-2px); border-color: #a9bee8; }
+.contact-channel:hover:not(:focus-visible) { box-shadow: 0 8px 24px rgb(11 18 32 / 7%); }
 .contact-channel__icon { display: grid; width: 38px; height: 38px; place-items: center; border-radius: 50%; color: var(--color-electric-blue); background: #eef4ff; font: 600 1rem/1 var(--font-heading); }
 .contact-channel > span:nth-child(2) { display: grid; min-width: 0; gap: 3px; }
 .contact-channel strong { font-size: .85rem; font-weight: 600; }
@@ -498,7 +498,7 @@ img, svg { display: block; }
 .form-field select { min-height: 43px; }
 .form-field textarea { min-height: 128px; resize: vertical; }
 .form-field input::placeholder, .form-field textarea::placeholder { color: #7a8798; opacity: 1; }
-.form-field input:focus-visible, .form-field select:focus-visible, .form-field textarea:focus-visible { outline: 3px solid rgb(57 120 246 / 30%); outline-offset: 1px; border-color: var(--color-electric-blue); }
+.form-field input:focus-visible, .form-field select:focus-visible, .form-field textarea:focus-visible { border-color: var(--color-electric-blue); }
 .contact-form.has-validation-error .form-field :is(input, select, textarea):invalid { border-color: #b42318; }
 .form-field small { color: var(--color-text-muted); font-size: .69rem; line-height: 1.4; }
 .contact-form__submit-row { display: grid; justify-items: start; gap: 14px; margin-top: 22px; }
